@@ -142,7 +142,7 @@ $a = sp_offset($offset);
                                     </div>
                                     <div class="product__price">
                                         <!-- < ?= $d['gia_sp'] ?> -->
-                                        <?php echo number_format($d['gia_sp'],0,',') ?>
+                                       <h6 class="text-danger"> <?php echo number_format($d['gia_sp'],0,',') ?></h6>
                                       
                                         <!-- < ?php numfmt_format_currency($d['gia_sp'],0,'đ') ?> -->
                                         <input type="hidden" name="gia_sp" value="<?= $d['gia_sp'] ?>">
