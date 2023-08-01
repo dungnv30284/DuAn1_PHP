@@ -10,7 +10,6 @@ session_start();
    $target_file = $target_dir.basename($fileLoad['name']);
    move_uploaded_file($fileLoad['tmp_name'],$target_file);
    return $fileLoad['name'];
-
  }
  function get_cookie($name){
   return $_COOKIE['name']??'';
