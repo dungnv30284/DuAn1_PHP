@@ -128,7 +128,7 @@ $a = sp_offset($offset);
                                     $s = count($u);
                                    // echo var_dump($u[2][0]);
                                     //echo var_dump($s);
-                                    ?>
+                                    ?> 
                                     <h6><a class="text-decoration-none" href="index.php?act=spdetail&ma_sp=<?= $d['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>">
                                             <?= $d['ten_sp'] ?>
                                         </a></h6>
