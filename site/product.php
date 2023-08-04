@@ -117,7 +117,7 @@ require_once 'dao_pdo/cate_pdo.php';
                                                 </div>
                                                 <div class="product__price">
                                                     <!-- < ?= $s['gia_sp'] ?> -->
-                                                    <?php echo number_format($s['gia_sp'], 0, ',') ?>
+                                                    <h6 class="text-danger">     <?php echo number_format($s['gia_sp'], 0, ',') ?> </h6>
                                                 </div>
                                                 <input type="hidden" name="gia_sp" value="<?= $s['gia_sp'] ?>">
                                                 <input type="hidden" name="img" value="<?= $s['img'] ?>">

@@ -1,25 +1,5 @@
 <?php
-require_once 'global.php';
-require_once 'dao_pdo/sp_pdo.php';
-// $cate_id = $_GET['cate_id'];
-// $a = sp_by_cate($cate_id);
-// $coun = count($a);
-// $page_count = ceil($coun/$target_per_page);
-// if(isset($_GET['page'])){
-//     $page = $_GET['page'];
-//     if($page <= 0){
-//         $page = 1;
-//     }
-//     if($page > $page_count){
-//         $page = $page_count;
-//     }
-// }
-// else {
-//     $page = 1;
-// }
-// $offset = ($page - 1) * $target_per_page;
-// $d = sp_by_cate_offset($cate_id,$offset);
-// $cate = cate_selectAll();
+
 ?>
 <html lang="en">
 
@@ -96,8 +76,8 @@ require_once 'dao_pdo/sp_pdo.php';
                                                     <i class="fa fa-star"></i>
                                                 </div>
                                                 <div class="product__price">
-                                                    <!-- < ?= $s['gia_sp'] ?> -->
-                                                    <?php echo number_format($s['gia_sp'], 0, ',') ?>
+                                                 
+                                                <h6 class="text-danger">   <?php echo number_format($s['gia_sp'], 0, ',') ?> </h6>
                                                 </div>
                                                 <input type="hidden" name="gia_sp" value="<?= $s['gia_sp'] ?>">
                                                 <input type="hidden" name="img" value="<?= $s['img'] ?>">

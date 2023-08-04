@@ -66,30 +66,7 @@
                                     $i = 0;
                                     $total = 0;
                                     $sl = 0;
-                                    //echo count($_SESSION['giohang']).',';
-                                    // echo $_SESSION['giohang'][0][1].',';
-                                    // echo $_SESSION['giohang'][1][1]; 
-                                    //echo var_dump([$_SESSION['giohang'][1][1]]).'<br>';
-                                    // for ($i = 0; $i < count($_SESSION['giohang']); $i++){
-                                    //     //echo $_SESSION['giohang'][$i][1].',';
-                                    //     $a =$_SESSION['giohang'][$i][1];
-                                        
-                                    //      echo $a;
-
-                                        //  $c =$_SESSION['giohang'][$i][0];
-                                        // $d = $c.','.$c;
-                                        //  echo $d;
-                                    //    // echo var_dump([$_SESSION['giohang'][$i][1]]).'<br><br><br><hr>';
-                                    //     $value1 = [$_SESSION['giohang'][$i][1]];
-                                    //     $value2 = [$_SESSION['giohang'][$i][0]];
-                                    //    // echo var_dump($value);
-                                    //    echo var_dump($value1);
-                                    //    echo var_dump($value2);
-                                       //echo $i;
-                                      // $i++;
-                                      //echo var_dump($value[0]).'<br>';
-                                     
-                                    //} 
+                                    
                                    
                                     foreach ($_SESSION['giohang'] as $item):
                                        //echo $item[1];
@@ -122,7 +99,7 @@
                                                 <form class="form-inline" action="index.php?act=updatecart" method="post">
                                                     <input type="hidden" name="ten_sp" value="<?= $item[0] ?>">
                                                     <input type="number" class="form-control" id=""
-                                                        name="sl" value="<?= $item[3] ?>">
+                                                        name="sl" value="<?= $item[3] ?>" min=1>
                                                     
                                                     <input type="submit" value="Update" name="uptocart" class="btn btn-secondary">
                                                 </form>
