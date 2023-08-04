@@ -126,8 +126,7 @@ $a = sp_offset($offset);
                                     $t = cate_id_by_masp($ma_sp);
                                     $u = count_cateid();
                                     $s = count($u);
-                                   // echo var_dump($u[2][0]);
-                                    //echo var_dump($s);
+                                  
                                     ?> 
                                     <h6><a class="text-decoration-none" href="index.php?act=spdetail&ma_sp=<?= $d['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>">
                                             <?= $d['ten_sp'] ?>
@@ -141,10 +140,9 @@ $a = sp_offset($offset);
                                         <i class="fa fa-star"></i>
                                     </div>
                                     <div class="product__price">
-                                        <!-- < ?= $d['gia_sp'] ?> -->
+                                      
                                        <h6 class="text-danger"> <?php echo number_format($d['gia_sp'],0,',') ?></h6>
                                       
-                                        <!-- < ?php numfmt_format_currency($d['gia_sp'],0,'đ') ?> -->
                                         <input type="hidden" name="gia_sp" value="<?= $d['gia_sp'] ?>">
                                         <input type="hidden" name="img" value="<?= $d['img'] ?>">
                                     </div>
@@ -169,56 +167,7 @@ $a = sp_offset($offset);
     </section>
 
 
-    <!-- <div class="container">
-        <div class="row property__gallery">
-            < ?php foreach ($a as $d): 
-               
-        
-                ?>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="upload/< ?= $d['img'] ?>">
-                            <ul class="product__hover">
-                                <li><a href="/upload/< ?= $d['img'] ?>.'" class="image-popup"><span
-                                            class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <form action="index.php?act=addcart" method="post">
-                                <h6><a href="index.php?act=spdetail&ma_sp=< ?= $d['ma_sp'] ?>">
-                                        < ?= $d['ten_sp'] ?>
-                                    </a></h6>
-                                <input type="hidden" name="ten_sp" value="< ?= $d['ten_sp'] ?>">
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">
-                                    < ?= $d['gia_sp'] ?>
-                                    <input type="hidden" name="gia_sp" value="< ?= $d['gia_sp'] ?>">
-                                    <input type="hidden" name="img" value="< ?= $d['img'] ?>">
-                                </div>
-                                <div class="product__price bg-success text-white">
-
-                                    <input type="submit" value="Thêm vào giỏ" name="addtocart" class="rounded">
-                                    <span class="icon_bag_alt text-white">
-
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            < ?php endforeach ?>
-        </div>
-
-    </div> -->
+    
 </body>
 
 </html>
