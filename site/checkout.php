@@ -53,7 +53,7 @@
                                 <div class="checkout__form__input">
                                     <p>First Name <span>*</span></p>
                                     <span class="text-danger">
-                                        <?= isset($err_sdt) ? $err_sdt : '' ?>
+                                        <?= isset($err_hoten) ? $err_hoten : '' ?>
                                     </span>
                                     <input type="text" name="hoten">
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
                                     <span class="text-danger">
-                                        <?= isset($err_sdt) ? $err_sdt : '' ?>
+                                        <?= isset($err_diachi) ? $err_diachi : '' ?>
                                     </span>
                                     <input type="text" name="diachi">
                                 </div>
@@ -90,7 +90,7 @@
                                     </select>
                                 </div>
                                 <span class="text-danger">
-                                    <?= isset($err_sdt) ? $err_sdt : '' ?>
+                                    <?= isset($err_payment) ? $err_payment : '' ?>
                                 </span>
                             </div>
 
