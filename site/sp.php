@@ -1,17 +1,4 @@
 <?php
-require_once 'global.php';
-require_once 'dao_pdo/sp_pdo.php';
-require_once 'dao_pdo/cate_pdo.php';
-
-// if(isset($page)){
-// $offset = ($page -1) * $target_per_page;
-// }
-// else{
-//     $offset = 0;
-// }
-// $a = sp_offset($offset);
-// //$a = sp_selectAll_limit();
-// $cate = cate_selectAll();
 
 ?>
 
