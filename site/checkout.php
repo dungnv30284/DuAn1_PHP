@@ -55,7 +55,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_hoten) ? $err_hoten : '' ?>
                                     </span>
-                                    <input type="text" name="hoten" value="">
+                                    <input type="text" name="hoten" value="<?=htmlspecialchars($_POST['hoten'])?>">
                                 </div>
                             </div>
 
@@ -65,7 +65,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_diachi) ? $err_diachi : '' ?>
                                     </span>
-                                    <input type="text" name="diachi" value="">
+                                    <input type="text" name="diachi" value="<?=htmlspecialchars($_POST['diachi'])?>">
                                 </div>
 
                             </div>
@@ -75,15 +75,15 @@
                                     <span class="text-danger">
                                         <?= isset($err_sdt) ? $err_sdt : '' ?>
                                     </span>
-                                    <input type="text" name="sdt" value=""> 
+                                    <input type="text" name="sdt" value="<?=htmlspecialchars($_POST['sdt'])?>"> 
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="">
                                     <p>Payment <span>*</span></p>
 
-                                    <select name="payment" value="" id="" class="w-full border border-gray-200 h-[50px]">
-                                        <option value="0">Choose payment</option>
+                                    <select name="payment" id="select" value="<?=htmlspecialchars($_POST['payment'])?>" id="" class="w-full border border-gray-200 h-[50px]" onchange="paymentChange()">
+                                        <option value="">Choose payment</option>
                                         <option value="1">Paying when receiving! (COD)</option>
                                         <option value="2">Paying through Bank's account!</option>
                                         <option value="3">Paying through App(MOMO, ZaloPay...)!</option>
@@ -92,6 +92,9 @@
                                 <span class="text-danger">
                                     <?= isset($err_payment) ? $err_payment : '' ?>
                                 </span>
+                            </div>
+                            <div class="col-lg-12 mt-2">
+                                <p id="show" class="text-info"> </p>
                             </div>
 
                         </div>
@@ -147,6 +150,25 @@
             </form>
         </div>
     </section>
+    <script>
+        function paymentChange(){
+        var show =document.getElementById('show');
+        var values = document.getElementById('select');
+        var vl =values.value;
+        if(vl ==0){
+            show.innerHTML="";
+        }
+        else if(vl== 1){
+            show.innerHTML="You choose paying when receiving.<br> Please check the product and pay to the shipper"
+        }
+        else if(vl== 2){
+            show.innerHTML="You choose paying through bank's account. <br> Please transfer to <br> DJ - Techcombank - 4558788555555! "
+        }
+        else if(vl== 3){
+            show.innerHTML='You choose paying by App. <br> Please scan this QR code and transfer <br> <img src="https://images.viblo.asia/5974cb6b-ec70-41d0-9074-d4319b62f4c7.png" width="100px" height="100px">!'
+        }
+        }
+    </script>
 </body>
 
 </html>
