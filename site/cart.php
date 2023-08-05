@@ -69,10 +69,7 @@
                                     
                                    
                                     foreach ($_SESSION['giohang'] as $item):
-                                       //echo $item[1];
-                                      $a = $item[1];
-                                   // print_r($a);
-                                      // echo $a;
+                                      
                                        
                                         $tt = (int) $item[2] * (int) $item[3];
                                         $total += $tt;
@@ -93,7 +90,7 @@
                                             </td>
                                             <td>
                                             <?php echo number_format($item[2],0,',') ?>
-                                                <!-- < ?= $item[2] ?> -->
+                                                
                                             </td>
                                             <td>
                                                 <form class="form-inline" action="index.php?act=updatecart" method="post">
@@ -103,17 +100,7 @@
                                                     
                                                     <input type="submit" value="Update" name="uptocart" class="btn btn-secondary">
                                                 </form>
-                                                <!-- <div class="input-group">
-                                                    <span class="input-group-text btn btn-danger"
-                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                        - </span>
-                                                    <input type="number" value="< ?= $item[2] ?>"
-                                                        class="form-control text-center" min="1" max="100" name="sl">
-                                                    <span class="input-group-text btn btn-success"
-                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                                        + </span>
-                                                </div> -->
-                                                <!-- <input type="number" name="" id="" value="< ?= $item[2] ?>"> -->
+                                                
                                             </td>
                                             <td class="cart__price text-danger">
                                                 <!-- < ?= $tt ?> -->
@@ -153,14 +140,22 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="index.php?act=home" class="btn btn-info bg-info text-white">Continue Buying</a>
+                        <a href="index.php?act=sp" class="btn btn-info bg-info text-white">Continue Buying</a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn">
-                        <a href="index.php?act=delcart" class=" btn btn-warning bg-warning">Xóa toàn bộ</a>
+                <div class="col-lg-4 ">
+                    <div class="cart__total__procced">
+                        <h6>Cart total</h6>
+                        <ul>
+                            <li>Total: <span>
+                                   
+                                    <?php echo number_format($total,0,',') ?>
+                                </span></li>
+                        </ul>
+                        <a href="index.php?act=checkout" class="primary-btn">Checkout</a>
                     </div>
-                </div> -->
+                </div>
+              
             </div>
             <div class="row">
                 <div class="col-lg-6">
@@ -172,18 +167,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-4 ">
-                    <div class="cart__total__procced">
-                        <h6>Cart total</h6>
-                        <ul>
-                            <li>Total: <span>
-                                    <!-- < ?= $total ?> -->
-                                    <?php echo number_format($total,0,',') ?>
-                                </span></li>
-                        </ul>
-                        <a href="index.php?act=checkout" class="primary-btn">Checkout</a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
