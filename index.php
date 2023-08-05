@@ -156,8 +156,8 @@ if (isset($_GET['act'])) {
                     //echo $err_payment;
                 }
                 if ($diachi == '') {
-                    $err_diachi = "Bạn chưa nhập họ tên";
-                    //echo $err_diachi;
+                    $err_diachi = "Bạn chưa nhập địa chỉ";
+                    
                 }
                 if (!$err_hoten && !$err_diachi && !$err_sdt && !$err_payment) {
                     bills_insert($ma_hd, $tong_tien, $tongsl, $hoten, $diachi, $sdt, $payment, $tensp,$hasp);

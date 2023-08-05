@@ -55,7 +55,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_hoten) ? $err_hoten : '' ?>
                                     </span>
-                                    <input type="text" name="hoten">
+                                    <input type="text" name="hoten" value="">
                                 </div>
                             </div>
 
@@ -65,7 +65,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_diachi) ? $err_diachi : '' ?>
                                     </span>
-                                    <input type="text" name="diachi">
+                                    <input type="text" name="diachi" value="">
                                 </div>
 
                             </div>
@@ -75,14 +75,14 @@
                                     <span class="text-danger">
                                         <?= isset($err_sdt) ? $err_sdt : '' ?>
                                     </span>
-                                    <input type="text" name="sdt">
+                                    <input type="text" name="sdt" value=""> 
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="">
                                     <p>Payment <span>*</span></p>
 
-                                    <select name="payment" id="" class="w-full border border-gray-200 h-[50px]">
+                                    <select name="payment" value="" id="" class="w-full border border-gray-200 h-[50px]">
                                         <option value="0">Choose payment</option>
                                         <option value="1">Paying when receiving! (COD)</option>
                                         <option value="2">Paying through Bank's account!</option>
