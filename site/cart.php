@@ -66,47 +66,52 @@
                                     $i = 0;
                                     $total = 0;
                                     $sl = 0;
-                                    
-                                   
+
+
                                     foreach ($_SESSION['giohang'] as $item):
-                                      
-                                       
+
+
                                         $tt = (int) $item[2] * (int) $item[3];
                                         $total += $tt;
-                                       
-                                        
+
+
                                         ?>
                                         <tr>
                                             <td>
                                                 <?= ($i + 1) ?>
                                             </td>
                                             <td>
-                                                <img src="upload/<?= $item[1]?>" alt="" width="100px" height="100px">                                
-                                            
+                                                <img src="upload/<?= $item[1] ?>" alt="" width="100px" height="100px">
+
                                             </td>
                                             <td class="text-success font-weight-bold">
-                                                <?= $item[0]  ?>
-                                               
+                                                <?= $item[0] ?>
+
                                             </td>
                                             <td>
-                                            <?php echo number_format($item[2],0,',') ?>
-                                                
+                                                <?php echo number_format($item[2], 0, ',') ?>
+
                                             </td>
                                             <td>
-                                                <form class="form-inline" action="index.php?act=updatecart" method="post">
+                                                <form class="form-inline" action="index.php?act=cart" method="post">
                                                     <input type="hidden" name="ten_sp" value="<?= $item[0] ?>">
-                                                    <input type="number" class="form-control" id=""
-                                                        name="sl" value="<?= $item[3] ?>" min=1>
-                                                    
-                                                    <input type="submit" value="Update" name="uptocart" class="btn btn-secondary">
+                                                    <input type="number" class="form-control" id="" name="sl"
+                                                        value="<?= $item[3] ?>" min=1>
+
+                                                    <input type="submit" value="Update" name="uptocart"
+                                                        class="btn btn-secondary"> <br>
+                                                    <span class="text-danger">
+                                                        <?= isset($err_sl) ? $err_sl : '' ?>
+                                                    </span>
                                                 </form>
-                                                
+
                                             </td>
                                             <td class="cart__price text-danger">
                                                 <!-- < ?= $tt ?> -->
-                                                <?php echo number_format($tt,0,',') ?>
+                                                <?php echo number_format($tt, 0, ',') ?>
                                             </td>
-                                            <td><a href="index.php?act=delcart&i=<?= $i ?>"  class=" text-purple-900"><i class="fa fa-trash"></i></a></td>
+                                            <td><a href="index.php?act=delcart&i=<?= $i ?>" class=" text-purple-900"><i
+                                                        class="fa fa-trash"></i></a></td>
                                         </tr>
                                         <?php
                                         $sl += $item[3];
@@ -123,7 +128,7 @@
                                         <td colspan="5" class=" text-center font-weight-bold">Total in Total:</td>
                                         <td colspan="2" class="text-danger  font-weight-bold">
                                             <!-- < ?= $total ?> -->
-                                            <?php echo number_format($total,0,',') ?>
+                                            <?php echo number_format($total, 0, ',') ?>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -148,14 +153,14 @@
                         <h6>Cart total</h6>
                         <ul>
                             <li>Total: <span>
-                                   
-                                    <?php echo number_format($total,0,',') ?>
+
+                                    <?php echo number_format($total, 0, ',') ?>
                                 </span></li>
                         </ul>
                         <a href="index.php?act=checkout" class="primary-btn">Checkout</a>
                     </div>
                 </div>
-              
+
             </div>
             <div class="row">
                 <div class="col-lg-6">
@@ -167,7 +172,7 @@
                         </form>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </section>

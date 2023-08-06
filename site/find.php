@@ -1,18 +1,20 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-<section class="product spad">
+
+    <section class="product spad">
         <div class="container">
 
-        <div class="row property__gallery">
-              
-        <?php  foreach ($keylist as $k)
-         : ?>
+            <div class="row property__gallery">
+
+                <?php foreach ($keylist as $k)
+                : ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                         <div class="product__item">
                             <form action="index.php?act=addcart" method="post">
@@ -21,7 +23,7 @@
                                         <li><a href="/upload/<?= $k['img'] ?>.'" class="image-popup"><span
                                                     class="arrow_expand"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                       
+
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -37,18 +39,27 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
+
                                     <div class="product__price">
-                                        <?= $k['gia_sp'] ?>
-                                        <input type="hidden" name="gia_sp" value="<?= $k['gia_sp'] ?>">
-                                        <input type="hidden" name="img" value="<?= $k['img'] ?>">
+
+                                        <h6 class="text-danger">
+                                            <?php echo number_format($k['gia_sp'], 0, ',') ?>
+                                        </h6>
                                     </div>
-                                    <div class="product__price bg-warning text-white">
+                                    <input type="hidden" name="gia_sp" value="<?= $k['gia_sp'] ?>">
+                                    <input type="hidden" name="img" value="<?= $k['img'] ?>">
 
-                                        <input type="submit" value="Add to cart" name="addtocart" class="rounded">
-                                        <span class="icon_bag_alt text-white">
+                                    
+                                    <div class="product__price bg-black rounded-pill text-white ">
 
+                                                    <input type="submit" value="Add to cart" name="addtocart" class="">
+                                                    &emsp;&emsp;   |&emsp;&emsp; 
+                                                    <a class="text-decoration-none"
+                                                        href="index.php?act=spdetail&ma_sp=<?= $k['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>"> 
+                                                        Details
+                                                    </a>
 
-                                    </div>
+                                                </div>
 
                                 </div>
                             </form>
@@ -58,7 +69,8 @@
                 <?php endforeach ?>
             </div>
         </div>
-</section>
-      
+    </section>
+
 </body>
+
 </html>

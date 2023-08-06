@@ -149,7 +149,7 @@ $a = sp_offset($offset);
                                     <div class="product__price bg-black rounded-pill text-white ">
 
                                         <input type="submit" value="Add to cart" name="addtocart" class="">
-                                        |
+                                        &emsp;&emsp;|&emsp;&emsp;
                                         <a class="text-decoration-none" href="index.php?act=spdetail&ma_sp=<?= $d['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>">
                                             Details
                                         </a>

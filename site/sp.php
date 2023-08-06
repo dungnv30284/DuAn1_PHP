@@ -116,7 +116,7 @@
                                                 <div class="product__price rounded-pill bg-black text-white ">
 
                                                     <input type="submit" value="Add to cart" name="addtocart" class="">
-                                                    |
+                                                   &emsp;|&emsp;
                                                     <a class="text-decoration-none"
                                                         href="index.php?act=spdetail&ma_sp=<?= $s['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>">
                                                         Details

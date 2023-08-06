@@ -43,19 +43,7 @@
 
 <body>
 
-    <!-- 
-    <div class="row mx-1">
-         <form action="loginindex.php" method="post" class="">
-
-            <input class="w-[90px]  border-bottom border-danger" type="text" name="adm_id" id=""
-                placeholder=" Admin's ID">
-
-            <input class="w-[150px]   border-bottom border-danger" type="text" name="pass" id=""
-                placeholder=" Password">
-            <input type="submit" name="btn_login" class="site-btn bg-red-400" value="Login">
-        </form> 
-    </div> -->
-
+    
     <div class="dropdown">
         <a class="btn  " data-bs-toggle="dropdown">
 
@@ -72,16 +60,5 @@
             </form>
         </ul>
     </div>
-    <!-- <-- <div class="dropdown">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Link 1</a></li>
-      <li><a class="dropdown-item" href="#">Link 2</a></li>
-      <li><a class="dropdown-item" href="#">Link 3</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Another link</a></li>
-    </ul>
-  </div> -->
+   
 </body>
