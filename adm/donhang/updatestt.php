@@ -1,23 +1,4 @@
 <?php
-// require_once '../global.php';
-// require_once '../dao_pdo/pdo.php';
-// require_once '../dao_pdo/sp_pdo.php';
-// require_once '../dao_pdo/bill_pdo.php';
-// require_once '../dao_pdo/cate_pdo.php';
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $ma_hd = $_POST['ma_hd'];
-//     $stt_id = $_POST['stt_id'];
-//     stt_update($stt_id, $ma_hd);
-//     echo "
-//             <script>
-//             alert('Update trạng thái thành công!');
-//             window.location.href='http://localhost/demo/adm/donhang/index.php';
-//             </script>
-//             ";
-// }
-// $ma_hd = $_GET['ma_hd'];
-// $result = status_select1($ma_hd);
 
 ?>
 

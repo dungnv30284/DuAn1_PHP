@@ -22,7 +22,7 @@ if(exist_param('btn_login')){
             echo "
             <script>
             alert('Đăng nhập thành công! Chuyển đến trang quản trị!');
-            window.location.href='http://localhost/duan1/adm/site/index.php';
+            window.location.href='http://localhost/duan1_php/adm/site/index.php';
             </script>
             ";
         }
@@ -31,7 +31,7 @@ if(exist_param('btn_login')){
             echo "
             <script>
             alert(' Mật khẩu không đúng vui  bạn đăng nhập lại ');
-            window.location.href='http://localhost/duan1/login.php';
+            window.location.href='http://localhost/duan1_php/login.php';
             </script>
             ";
         }
@@ -41,7 +41,7 @@ if(exist_param('btn_login')){
         echo "
             <script>
             alert('Tài khoản hoặc mật khẩu không đúng vui  bạn đăng nhập lại ');
-            window.location.href='http://localhost/duan1/login.php';
+            window.location.href='http://localhost/duan1_php/login.php';
             </script>
             ";
     }
@@ -53,7 +53,7 @@ else{
     echo "
         <script>
         alert('Đăng xuất thành công!');
-        window.location.href='http://localhost/duan1/index.php';
+        window.location.href='http://localhost/duan1_php/index.php';
         </script>
         ";
 }

@@ -16,7 +16,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Thêm thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=catelist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
                         </script>
                         ";
             }
@@ -31,7 +31,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Update thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=catelist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
                         </script>
                         ";
             }
@@ -44,7 +44,7 @@ if (isset($_GET['act'])) {
             cate_delete($cate_id);
             echo "  <script>
             alert('Xóa thành công!');
-            window.location.href='http://localhost/DUAN1/adm/site/index.php?act=catelist';
+            window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
             </script>";
             $VIEW_NAME = 'danhmuc/delcate.php';
             break;
@@ -60,7 +60,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Thêm trạng thái thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=billlist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=billlist';
                         </script>
                         ";
             }
@@ -74,7 +74,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Update trạng thái thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=billlist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=billlist';
                         </script>
                         ";
             }
@@ -98,7 +98,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Thêm thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=productlist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
                         </script>
                         ";
             }
@@ -120,7 +120,7 @@ if (isset($_GET['act'])) {
                 echo "
                         <script>
                         alert('Update thành công!');
-                        window.location.href='http://localhost/DUAN1/adm/site/index.php?act=productlist';
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
                         </script>
                         ";
             }
@@ -133,7 +133,7 @@ if (isset($_GET['act'])) {
             sp_delete($ma_sp);
             echo "  <script>
             alert('Xóa thành công!');
-            window.location.href='http://localhost/DUAN1/adm/site/index.php?act=productlis';
+            window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlis';
             </script>";
             $VIEW_NAME = 'sp/prodel.php';
             break;
