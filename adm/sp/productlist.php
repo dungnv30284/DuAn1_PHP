@@ -26,47 +26,8 @@
 <body>
     <header class="header">
         <div class="container-fluid">
-            <!-- <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class=""><a href="../../adm/index.php">Home</a></li>
-                            <li><a href="../sp/index.php">Sản phẩm</a></li>
-                            <li><a href="../danhmuc/index.php">Danh mục</a></li>
-                            <li><a href="../donhang/index.php">Đơn hàng</a></li>
-
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-5">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="login.php">Login
-                            
-                            </a>
-                           <ul class="dropdown">
-                                    <form action="login.php" method="post">
-                                         <label for="adm_id">ID</label> <br>
-                                               <input type="text" name="adm_id" id=""> <br>
-                                               <label for="adm_id">Password</label> <br>
-                                               <input type="text" name="pass" id=""> <br>
-                                               <button type="submit" name="btn_login">Login</button>
-                                    </form>
-                                </ul>
-                            < ?php require '../../login.php' ?>
-                        </div>
-
-                    </div>
-                </div>
-            </div> -->
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
+           
+           
         </div>
     </header>
 

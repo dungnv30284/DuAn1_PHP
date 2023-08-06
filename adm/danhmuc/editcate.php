@@ -1,23 +1,4 @@
 <?php
-// require_once '../global.php';
-// require_once '../dao_pdo/sp_pdo.php';
-// require_once '../dao_pdo/bill_pdo.php';
-// require_once '../dao_pdo/cate_pdo.php';
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $cate_id = $_POST['cate_id'];
-//     $cate_name = $_POST['cate_name'];
-//     cate_update($cate_name, $cate_id);
-    
-//     echo "
-//             <script>
-//             alert('Update thành công!');
-//             window.location.href='http://localhost/demo/adm/danhmuc/catelist.php';
-//             </script>
-//             ";
-// }
-// $cate_id = $_GET['cate_id'];
-// $result = cate_selectOne($cate_id);
 
 ?>
 
@@ -58,37 +39,7 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <!-- <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <nav class="header__menu">
-                        <ul>
-                        <li class=""><a href="../../adm/index.php">Home</a></li>
-                            <li><a href="../sp/index.php">Sản phẩm</a></li>
-                            <li><a href="../danhmuc/index.php">Danh mục</a></li>
-                            <li><a href="../donhang/index.php">Đơn hàng</a></li>
-
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-5">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-
-                        < ?php require '../../login.php' ?>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div class="canvas__open">
-            <i class="fa fa-bars"></i>
-        </div> -->
+       
       
     </header>
     <!-- Header Section End -->
@@ -111,10 +62,12 @@
 
             <div class="row property__gallery">
 
-                <form action="edit.php" method="post" enctype="multipart/form-data">
+                <form action="index.php?act=editcate&cate_id=<?= $result['cate_id']?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="cate_id" value="<?= $result['cate_id'] ?>">
                     <label for="">New Categories's Name</label> <br>
-                    <input type="text" name="cate_name" id="" value="<?= $result['cate_name'] ?>"> <br>
+                    <input type="text" name="cate_name" id="" value="<?= $result['cate_name'] ?>"> 
+                    <span class="text-danger"> <?= isset($err_name) ? $err_name : '' ?> </span>
+                    <br>
                     <button type="submit">Update</button>
                 </form>
 

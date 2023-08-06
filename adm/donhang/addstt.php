@@ -1,20 +1,5 @@
 <?php
-// require_once '../../global.php';
-// require_once '../../dao_pdo/pdo.php';
-// require_once '../../dao_pdo/cate_pdo.php';
-// require_once '../../dao_pdo/bill_pdo.php';
 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $ma_hd = $_POST['ma_hd'];
-//     $stt = $_POST['stt_id'];
-//     stt_insert($ma_hd,$stt);
-//     echo "
-//             <script>
-//             alert('Thêm trạng thái thành công!');
-//             window.location.href='http://localhost/demo/adm/donhang/index.php';
-//             </script>
-//             ";
-// }
 
 ?>
 
@@ -55,36 +40,7 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <!-- <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class=""><a href="../../adm/index.php">Home</a></li>
-                            <li><a href="../sp/index.php">Sản phẩm</a></li>
-                            <li><a href="../danhmuc/index.php">Danh mục</a></li>
-                            <li><a href="../donhang/index.php">Đơn hàng</a></li>
-
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-5">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-
-                            < ?php require '../../login.php' ?>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
+       
     </header>
     <!-- Header Section End -->
     <div class="breadcrumb-option">
@@ -113,7 +69,9 @@
                     </div>
                     <div class="checkout__form__input">
                         <label for="">BIlls' Status</label> <br>
-                        <input type="number" name="stt_id"> <br>
+                        <input type="number" name="stt_id">
+                        <span class="text-danger"> <?= isset($err_stt) ? $err_stt : '' ?> </span>
+                        <br>
                     </div>
                     
               <button type="submit" class="site-btn">Thêm mới</button>
