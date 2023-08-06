@@ -165,8 +165,8 @@ if (isset($_GET['act'])) {
                         unset($_SESSION['giohang']);
                     echo "
                         <script>
-                        alert('Đặt mua thành công');
-                        window.location.href='http://localhost/duan1/index.php?act=bill';
+                        alert('Đặt mua thành công! Đang chuyển tới hóa đơn, vui lòng kiểm tra lại toàn bộ thông tin! Xin cảm ơn!');
+                        window.location.href='http://localhost/duan1/index.php?act=bill&ma_hd=$ma_hd';
                         </script>
                         ";
                 }
@@ -204,6 +204,8 @@ if (isset($_GET['act'])) {
             $VIEW_NAME = 'site/productother.php';
             break;
         case 'bill':
+            $ma_hd = $_GET['ma_hd'];
+            $a = bills_selectone($ma_hd);
             $VIEW_NAME = 'site/bill.php';
             break;
         case 'find':
