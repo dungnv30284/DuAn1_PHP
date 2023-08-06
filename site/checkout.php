@@ -129,15 +129,14 @@
                                             $i=0;
                                             for ($i=0; $i < count($_SESSION['giohang']); $i++ ) {
                                                 $a =$_SESSION['giohang'][$i][1];
-                                        $b = $a.','.$a;
-                                         //echo $b;
+                                       
 
                                          $c =$_SESSION['giohang'][$i][0];
-                                        $d = $c.','.$c;
+                                       
                                          //echo $d;
                                             ?>
-                                    <input type="hidden" name="tensp" value="<?= $b ?>">
-                                    <input type="hidden" name="hasp" value="<?= $d ?>">
+                                    <input type="hidden" name="tensp" value="<?= $c ?>">
+                                    <input type="hidden" name="hasp" value="<?= $a ?>">
                                      <?php }   ?>
                                 </ul>
                             </div>
