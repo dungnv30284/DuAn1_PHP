@@ -30,26 +30,53 @@ if (isset($_GET['act'])) {
             $VIEW_NAME = 'site/blog.php';
             break;
         case 'cart':
-            $VIEW_NAME = 'site/cart.php';
-            break;
-        case 'updatecart':
             if (isset($_POST['uptocart']) && $_POST['uptocart']) {
                 $sl = $_POST['sl'];
                 $ten_sp = $_POST['ten_sp'];
-                if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
-                    $i = 0;
-                    foreach ($_SESSION['giohang'] as $item) {
-                        if ($item[0] == $ten_sp) {
-                            $_SESSION['giohang'][$i][3] = $sl;
-                            break;
+                $err_sl = '';
+                if ($sl == '') {
+                    $err_sl = 'Hãy chọn số lượng';
+                } elseif ($sl != '') {
+                    if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
+                        $i = 0;
+                        foreach ($_SESSION['giohang'] as $item) {
+                            if ($item[0] == $ten_sp) {
+                                $_SESSION['giohang'][$i][3] = $sl;
+                                break;
+                            }
+                            $i++;
                         }
-                        $i++;
                     }
+                    header('location: index.php?act=cart');
                 }
-                header('location: index.php?act=cart');
             }
-
+            $VIEW_NAME = 'site/cart.php';
             break;
+        // case 'updatecart':
+        //     if (isset($_POST['uptocart']) && $_POST['uptocart']) {
+        //         $sl = $_POST['sl'];
+        //         $ten_sp = $_POST['ten_sp'];
+        //         $err_sl = '';
+        //         if ($sl == '') {
+        //             $err_sl = 'Hãy chọn số lượng';
+        //             header('location: index.php?act=cart');
+        //         } elseif ($sl != '') {
+        //             if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
+        //                 $i = 0;
+        //                 foreach ($_SESSION['giohang'] as $item) {
+        //                     if ($item[0] == $ten_sp) {
+        //                         $_SESSION['giohang'][$i][3] = $sl;
+        //                         break;
+        //                     }
+        //                     $i++;
+        //                 }
+        //             }
+        //             header('location: index.php?act=cart');
+        //         }
+        //     }
+
+
+        //     break;
         case 'home':
             $VIEW_NAME = 'site/home.php';
             break;
@@ -157,10 +184,10 @@ if (isset($_GET['act'])) {
                 }
                 if ($diachi == '') {
                     $err_diachi = "Bạn chưa nhập địa chỉ";
-                    
+
                 }
                 if (!$err_hoten && !$err_diachi && !$err_sdt && !$err_payment) {
-                    bills_insert($ma_hd, $tong_tien, $tongsl, $hoten, $diachi, $sdt, $payment, $tensp,$hasp);
+                    bills_insert($ma_hd, $tong_tien, $tongsl, $hoten, $diachi, $sdt, $payment, $tensp, $hasp);
                     if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0)
                         unset($_SESSION['giohang']);
                     echo "
@@ -225,7 +252,7 @@ if (isset($_GET['act'])) {
             $VIEW_NAME = 'site/find.php';
             break;
 
-        case 'billdetail' :
+        case 'billdetail':
             $ma_hd = $_GET['ma_hd'];
             $a = bills_selectone($ma_hd);
             $VIEW_NAME = 'site/billdetail.php';
