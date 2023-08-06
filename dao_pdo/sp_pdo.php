@@ -37,6 +37,7 @@ function sp_by_gia($gia_sp){
     return pdo_query($sql,$gia_sp);
 }
 
+
 function sp_by_cate($cate_id){
     $sql = "select * from sps inner join sp_cates on sps.ma_sp = sp_cates.ma_sp
     inner join categories on sp_cates.cate_id = categories.cate_id
@@ -44,24 +45,29 @@ function sp_by_cate($cate_id){
     return pdo_query($sql,$cate_id);
 }
 
+
 function sp_by_tag($ma_sp, $tag_id, $tag_value){
     $sql = "select sps.ma_sp, sps.ten_sp, sps.img, sps.gia_sp from sps innerjoin sp_tags on sps.ma_sp = sp_tags.ma_sp having tag_value = ?"; 
     return pdo_query($sql,$ma_sp, $tag_id, $tag_value);
 }
+
 function sp_by_cate_limit($cate_id){
     $sql = "select * from sps inner join sp_cates on sps.ma_sp = sp_cates.ma_sp
     inner join categories on sp_cates.cate_id = categories.cate_id
      having categories.cate_id = ? limit 8"; 
-    return pdo_query($sql,$cate_id);
+   
+     return pdo_query($sql,$cate_id);
 }
 function sp_selectMasp(){
     $sql = "select ma_sp from sps";
     return pdo_query($sql);
 }
+
 function sp_select_limited($offset){
     $sql = "select * from sps limit 8 offset $offset  ?";
     return pdo_query($sql,$offset);
 }
+
 
 
 $target_per_page = 8;
