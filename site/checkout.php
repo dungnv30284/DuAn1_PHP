@@ -55,7 +55,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_hoten) ? $err_hoten : '' ?>
                                     </span>
-                                    <input type="text" name="hoten" value="<?=htmlspecialchars($_POST['hoten'])?>">
+                                    <input type="text" name="hoten" value="<?php if(isset($_POST['hoten'])) echo htmlentities($_POST['hoten']);?>" >
                                 </div>
                             </div>
 
@@ -65,7 +65,7 @@
                                     <span class="text-danger">
                                         <?= isset($err_diachi) ? $err_diachi : '' ?>
                                     </span>
-                                    <input type="text" name="diachi" value="<?=htmlspecialchars($_POST['diachi'])?>">
+                                    <input type="text" name="diachi" value="<?php if(isset($_POST['diachi'])) echo htmlentities($_POST['diachi']);?>" >
                                 </div>
 
                             </div>
@@ -75,14 +75,14 @@
                                     <span class="text-danger">
                                         <?= isset($err_sdt) ? $err_sdt : '' ?>
                                     </span>
-                                    <input type="text" name="sdt" value="<?=htmlspecialchars($_POST['sdt'])?>"> 
+                                    <input type="text" name="sdt" value="<?php if(isset($_POST['sdt'])) echo htmlentities($_POST['sdt']);?>" > 
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="">
                                     <p>Payment <span>*</span></p>
 
-                                    <select name="payment" id="select" value="<?=htmlspecialchars($_POST['payment'])?>" id="" class="w-full border border-gray-200 h-[50px]" onchange="paymentChange()">
+                                    <select name="payment" id="select" value="<?php if(isset($_POST['payment'])) echo htmlentities($_POST['payment']);?>" id="" class="w-full border border-gray-200 h-[50px]" onchange="paymentChange()">
                                         <option value="">Choose payment</option>
                                         <option value="1">Paying when receiving! (COD)</option>
                                         <option value="2">Paying through Bank's account!</option>
@@ -129,15 +129,14 @@
                                             $i=0;
                                             for ($i=0; $i < count($_SESSION['giohang']); $i++ ) {
                                                 $a =$_SESSION['giohang'][$i][1];
-                                        $b = $a.','.$a;
-                                         //echo $b;
+                                       
 
                                          $c =$_SESSION['giohang'][$i][0];
-                                        $d = $c.','.$c;
+                                       
                                          //echo $d;
                                             ?>
-                                    <input type="hidden" name="tensp" value="<?= $b ?>">
-                                    <input type="hidden" name="hasp" value="<?= $d ?>">
+                                    <input type="hidden" name="tensp" value="<?= $c ?>">
+                                    <input type="hidden" name="hasp" value="<?= $a ?>">
                                      <?php }   ?>
                                 </ul>
                             </div>

@@ -73,38 +73,37 @@ require_once 'dao_pdo/bill_pdo.php';
                             <tbody>
                                 <?php
                                 
-                                $a = bills_selectAll();
-                                foreach ($a as $d) {
+                                $a = bills_selectone($ma_hd)
                                     
                                     ?>
                                     <tr>
                                        
                                         <td class="font-weight-bold">
-                                            <?= $d['ma_hd'] ?>
+                                            <?= $a['ma_hd'] ?>
                                         </td>
                                         <td class="text-success font-weight-bold">
-                                            <?= number_format($d['tong_tien'], 0, ',') ?>
+                                            <?= number_format($a['tong_tien'], 0, ',') ?>
 
                                         </td>
                                         <td>
-                                            <?= $d['tongsl'] ?>
+                                            <?= $a['tongsl'] ?>
                                             <!-- < ?= $item[2] ?> -->
                                         </td>
                                         <td colspan="2">
                                             Họ tên:
-                                            <?= $d['hoten'] ?> <br>
+                                            <?= $a['hoten'] ?> <br>
                                             Địa chỉ:
-                                            <?= $d['diachi'] ?> <br>
+                                            <?= $a['diachi'] ?> <br>
                                             SDT:
-                                            <?= $d['sdt'] ?> <br>
+                                            <?= $a['sdt'] ?> <br>
                                         </td>
                                         <td class="cart__price text-danger">
                                             <?php $payment = [1, 2, 3];
-                                            if ($d['payment'] == $payment[0]) {
+                                            if ($a['payment'] == $payment[0]) {
                                                 echo "Thanh toán khi nhận hàng!";
-                                            } elseif ($d['payment'] == $payment[1]) {
+                                            } elseif ($a['payment'] == $payment[1]) {
                                                 echo "Thanh toán qua tài khoản ngân hàng!";
-                                            } elseif ($d['payment'] == $payment[2]) {
+                                            } elseif ($a['payment'] == $payment[2]) {
                                                 echo "Thanh toán qua ví điện tử (MOMO, ZaloPay...)";
                                             }
                                             ?>
@@ -112,7 +111,7 @@ require_once 'dao_pdo/bill_pdo.php';
                                         <td>
                                             <?php
                                             $stt = [1,2,3,4];
-                                            $ma_hd = $d['ma_hd'];
+                                            $ma_hd = $a['ma_hd'];
                                             $t = status_select1($ma_hd);
                                             if (isset($t['stt_id'])) {
                                                 if ($t['stt_id'] == $stt[0]) {
@@ -131,13 +130,13 @@ require_once 'dao_pdo/bill_pdo.php';
                                             ?>
                                         </td>
 
-                                        <td ><a href="index.php?act=billdetail&ma_hd=<?=$d['ma_hd']?>">See details</a></td>
+                                        <td ><a href="index.php?act=billdetail&ma_hd=<?=$a['ma_hd']?>">See details</a></td>
                                        
                                     </tr>
                                     <?php
 
 
-                                }
+                              
 
                                 ?>
 
@@ -152,34 +151,12 @@ require_once 'dao_pdo/bill_pdo.php';
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="index.php?act=home" class="btn btn-info bg-info text-white">Tiếp tục mua</a>
+                        <a href="index.php?act=product" class="btn btn-info bg-info text-white">Tiếp tục mua</a>
                     </div>
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="discount__content">
-                        <h6>Discount codes</h6>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your coupon code">
-                            <button type="submit" class="site-btn">Apply</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="cart__total__procced">
-                        <h6>Cart total</h6>
-                        <ul>
-                            <li>Total: <span>
-                                    <!-- < ?= $total ?> -->
-
-                                </span></li>
-                        </ul>
-                        <a href="index.php?act=checkout" class="primary-btn">Checkout</a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </section>
 
