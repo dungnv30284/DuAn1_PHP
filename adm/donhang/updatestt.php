@@ -1,23 +1,4 @@
 <?php
-// require_once '../global.php';
-// require_once '../dao_pdo/pdo.php';
-// require_once '../dao_pdo/sp_pdo.php';
-// require_once '../dao_pdo/bill_pdo.php';
-// require_once '../dao_pdo/cate_pdo.php';
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $ma_hd = $_POST['ma_hd'];
-//     $stt_id = $_POST['stt_id'];
-//     stt_update($stt_id, $ma_hd);
-//     echo "
-//             <script>
-//             alert('Update trạng thái thành công!');
-//             window.location.href='http://localhost/demo/adm/donhang/index.php';
-//             </script>
-//             ";
-// }
-// $ma_hd = $_GET['ma_hd'];
-// $result = status_select1($ma_hd);
 
 ?>
 
@@ -78,7 +59,7 @@
 
             <div class="row property__gallery">
 
-                <form action="index.php?act=updatestt" method="post" enctype="multipart/form-data" class="checkout__form">
+                <form action="index.php?act=updatestt&ma_hd=<?= $result['ma_hd'] ?>" method="post" enctype="multipart/form-data" class="checkout__form">
                     <div class="checkout__form__input">
                     
                         <input type="hidden" name="ma_hd" value="<?= $result['ma_hd'] ?>">
@@ -87,6 +68,7 @@
                         <label for="">New Bills' Status</label> <br>
                         <input type="hidden" name="stt_id" value="<?= $result['stt_id'] ?>"> <br>
                         <input type="number" name="stt_id">
+                        <span class="text-danger"> <?= isset($err_stt) ? $err_stt : '' ?> </span>
                     </div>
 
                     <button type="submit" class="site-btn">Update</button>

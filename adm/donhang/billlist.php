@@ -80,11 +80,11 @@
     <section>
         <hr>
     </section>
-    <section class="shop-cart spad">
+    <!-- <section class="shop-cart spad">
         <div class="container mx-auto">
             <div class="  row">
 
-                <?php
+                < ?php
                
                 foreach ($s as $d) {
 
@@ -96,28 +96,28 @@
 
                     <div class="dropdown col-xl-3 my-5 text-center">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            <?= $d['ma_hd'] ?>
+                            < ?= $d['ma_hd'] ?>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item bg-info text-white font-weight-bold text-uppercase" href="#">
                                     Bill's Details:</a></li>
                             <li><a class="dropdown-item" href="#"> In total: <span class="text-danger">
-                                        <?php echo number_format($d['tong_tien'],0,',')  ?> VND
+                                        < ?php echo number_format($d['tong_tien'],0,',')  ?> VND
                                     </span></a></li>
                             <li><a class="dropdown-item" href="#">The amount: <span class="text-success">
-                                        <?= $d['tongsl'] ?>
+                                        < ?= $d['tongsl'] ?>
                                     </span></a></li>
                             <li><a class="dropdown-item font-weight-bold" href="#">Name:
-                                    <?= $d['hoten'] ?>
+                                    < ?= $d['hoten'] ?>
                                 </a></li>
                             <li><a class="dropdown-item font-weight-bold" href="#">Address:
-                                    <?= $d['diachi'] ?>
+                                    < ?= $d['diachi'] ?>
                                 </a></li>
                             <li><a class="dropdown-item font-weight-bold" href="#">Phone's number:
-                                    <?= $d['sdt'] ?>
+                                    < ?= $d['sdt'] ?>
                                 </a></li>
                             <li><a class="dropdown-item " href="#">Payment:
-                                    <?php if ($d['payment'] == 1) {
+                                    < ?php if ($d['payment'] == 1) {
                                         echo "Paying when receiving!";
                                     } elseif ($d['payment'] == 2) {
                                         echo "Paying through Bank's account!";
@@ -127,7 +127,7 @@
                                     ?>
                                 </a></li>
                             <li class="bg-warning"><a class="dropdown-item" href="#">Status:
-                                    <?php
+                                    < ?php
                                     $ma_hd = $d['ma_hd'];
                                     $t = status_select1($ma_hd);
                                     if ($t['stt_id'] == 1) {
@@ -145,17 +145,17 @@
                                 </a></li>
 
 
-                        </ul><?php if(isset($t['stt_id'])){
+                        </ul>< ?php if(isset($t['stt_id'])){
                             ?>
-                          <a class="btn btn-danger" href="index.php?act=updatestt&ma_hd=<?= $d['ma_hd'] ?>" class="text-success">Update Bills' Status</a>
-<?php
+                          <a class="btn btn-danger" href="index.php?act=updatestt&ma_hd=< ?= $d['ma_hd'] ?>" class="text-success">Update Bills' Status</a>
+< ?php
                         }
                         else{ ?>
-                        <a class="btn btn-warning" href="index.php?act=addstt&ma_hd=<?= $d['ma_hd'] ?>" class="text-success">Add New Status</a>
-                            <?php }?>
+                        <a class="btn btn-warning" href="index.php?act=addstt&ma_hd=< ?= $d['ma_hd'] ?>" class="text-success">Add New Status</a>
+                            < ? php }?>
                        
                     </div>
-                <?php } ?>'
+                < ?php } ?>'
 
 
 
@@ -170,6 +170,126 @@
         </div>
 
 
+    </section> -->
+    <section class="shop-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shop__cart__table">
+
+                        <table class="text-center">
+                            <thead>
+                                <tr>
+
+                                    
+                                    <th>Bill ID</th>
+                                    <th>Total </th>
+                                    <th>Amounts</th>
+                                    <th colspan="2">Buyer info</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Act</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+               
+               foreach ($s as $d) {
+
+
+
+
+                   ?>
+                                    <tr>
+                                       
+                                        <td class="font-weight-bold">
+                                            <?= $d['ma_hd'] ?>
+                                        </td>
+                                        <td class="text-success font-weight-bold">
+                                            <?= number_format($d['tong_tien'], 0, ',') ?>
+
+                                        </td>
+                                        <td>
+                                            <?= $d['tongsl'] ?>
+                                            <!-- < ?= $item[2] ?> -->
+                                        </td>
+                                        <td colspan="2">
+                                            Họ tên:
+                                            <?= $d['hoten'] ?> <br>
+                                            Địa chỉ:
+                                            <?= $d['diachi'] ?> <br>
+                                            SDT:
+                                            <?= $d['sdt'] ?> <br>
+                                        </td>
+                                        <td class="cart__price text-danger">
+                                            <?php $payment = [1, 2, 3];
+                                            if ($d['payment'] == $payment[0]) {
+                                                echo "Thanh toán khi nhận hàng!";
+                                            } elseif ($d['payment'] == $payment[1]) {
+                                                echo "Thanh toán qua tài khoản ngân hàng!";
+                                            } elseif ($d['payment'] == $payment[2]) {
+                                                echo "Thanh toán qua ví điện tử (MOMO, ZaloPay...)";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            $stt = [1,2,3,4];
+                                            $ma_hd = $d['ma_hd'];
+                                            $t = status_select1($ma_hd);
+                                            if (isset($t['stt_id'])) {
+                                                if ($t['stt_id'] == $stt[0]) {
+                                                    echo "Đang xử lý - Đã nhận thông tin đơn hàng!";
+                                                } elseif ($t['stt_id'] == $stt[1]) {
+                                                    echo "Đang xử lý - Đang chuẩn bị hàng!";
+                                                } elseif ($t['stt_id'] == $stt[2]) {
+                                                    echo "Đang xử lý - Đã giao cho bên vận chuyển!";
+                                                } elseif ($t['stt_id'] == $stt[3]) {
+                                                    echo "Đã xử lý - Giao hàng thành công!";
+                                                }
+                                            } elseif (!isset($t['stt_id'])) {
+                                                echo '<h6 class="text-white">Chưa xử lý: Chờ cập nhật trạng thái!</h6>';
+                                            }
+
+                                            ?>
+                                        </td>
+
+                                        <td >
+                                        <?php if(isset($t['stt_id'])){
+                            ?>
+                          <a class="btn btn-danger" href="index.php?act=updatestt&ma_hd=<?= $d['ma_hd'] ?>" class="text-success">Update Bills' Status</a>
+<?php
+                        }
+                        else{ ?>
+                        <a class="btn btn-warning" href="index.php?act=addstt&ma_hd=<?= $d['ma_hd'] ?>" class="text-success">Add New Status</a>
+                            <?php }?>
+                       
+                    </div>
+                
+                                        
+                                    </td>
+                                       
+                                    </tr>
+                                    <?php
+
+
+                                        }
+
+                                ?>
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
     </section>
     <footer class="footer">
         <div class="container">

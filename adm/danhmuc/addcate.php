@@ -1,20 +1,5 @@
 <?php
-// require_once '../global.php';
-// require_once '../dao_pdo/pdo.php';
-// require_once '../dao_pdo/cate_pdo.php';
-// require_once '../dao_pdo/bill_pdo.php';
 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $cate_id = $_POST['cate_id'];
-//     $cate_name = $_POST['cate_name'];
-//     cate_insert($cate_id, $cate_name);
-//     echo "
-//             <script>
-//             alert('Thêm thành công!');
-//             window.location.href='http://localhost/demo/adm/danhmuc/index.php';
-//             </script>
-//             ";
-// }
 
 ?>
 
@@ -55,36 +40,7 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <!-- <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class=""><a href="../../adm/index.php">Home</a></li>
-                            <li><a href="../sp/index.php">Sản phẩm</a></li>
-                            <li><a href="../danhmuc/index.php">Danh mục</a></li>
-                            <li><a href="../donhang/index.php">Đơn hàng</a></li>
-
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-5">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-
-                            < ?php require '../../login.php' ?>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
+        
     </header>
     <!-- Header Section End -->
     <div class="breadcrumb-option">
@@ -106,14 +62,18 @@
 
             <div class="row property__gallery">
 
-                <form action="add.php" method="post" enctype="multipart/form-data" class="checkout__form">
+                <form action="index.php?act=addcate" method="post" enctype="multipart/form-data" class="checkout__form">
                     <div class="checkout__form__input">
                         <label for="">Categories's ID</label> <br>
-                        <input type="text" name="cate_id"> <br>
+                        <input type="text" name="cate_id">
+                       <span class="text-danger"> <?= isset($err_cate) ? $err_cate : '' ?></span>
+                        <br>
                     </div>
                     <div class="checkout__form__input">
                     <label for="">Categories's Name</label> <br>
-                    <input type="text" name="cate_name" id=""> <br> <br>
+                    <input type="text" name="cate_name" id=""> 
+                    <span class="text-danger"> <?= isset($err_name) ? $err_name : '' ?> </span>
+                    <br> <br>
                     </div>
 
                     

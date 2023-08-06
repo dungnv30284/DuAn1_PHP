@@ -1,21 +1,4 @@
 <?php
-// require_once '../../global.php';
-// require_once '../../dao_pdo/pdo.php';
-// require_once '../../dao_pdo/sp_pdo.php';
-// require_once '../../dao_pdo/bill_pdo.php';
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $ten_sp = $_POST['ten_sp'];
-//     $anh = saveFile('img');
-//     $gia_sp = $_POST['gia_sp'];
-//     sp_insert($ten_sp, $anh, $gia_sp);
-//     echo "
-//             <script>
-//             alert('Thêm thành công!');
-//             window.location.href='http://localhost/demo/adm/sp/index.php';
-//             </script>
-//             ";
-// }
 
 ?>
 
@@ -54,42 +37,7 @@
 <body>
 
 
-    <!-- Header Section Begin -->
-    <!-- <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <nav class="header__menu">
-                        <ul>
-                        <li class=""><a href="../../adm/index.php">Home</a></li>
-                            <li><a href="../sp/index.php">Sản phẩm</a></li>
-                            <li><a href="../danhmuc/index.php">Danh mục</a></li>
-                            <li><a href="../donhang/index.php">Đơn hàng</a></li>
-                          
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-5">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                          
-                        < ?php require '../../login.php' ?>
 
-                        </div>
-                        
-                    </div>
-                </div>
-            </div
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header> -->
     <!-- Header Section End -->
     <div class="breadcrumb-option">
         <div class="container">
@@ -110,13 +58,21 @@
 
             <div class="row property__gallery">
 
-                <form action="add.php" method="post" enctype="multipart/form-data">
+                <form action="index.php?act=productadd" method="post" enctype="multipart/form-data">
                     <label for="">Product's Name</label> <br>
-                    <input type="text" name="ten_sp" id=""> <br>
+                    <input type="text" name="ten_sp" id="" value="<?php if(isset($_POST['ten_sp'])) echo htmlentities($_POST['ten_sp']);?>">
+                    <span class="text-danger">
+                        <?= isset($err_tensp) ? $err_tensp : '' ?>
+                    </span>
+                    <br>
                     <label for="">Upload Image</label> <br>
-                    <input type="file" name="img" id=""> <br>
+                    <input type="file" name="img" id="">
+                    <span class="text-danger"><?= isset($err_anh) ? $err_anh : '' ?> </span>
+                    <br>
                     <label for="">Price</label> <br>
-                    <input type="number" name="gia_sp" id=""> <br>
+                    <input type="number" name="gia_sp" id="" value="<?php if(isset($_POST['gia_sp'])) echo htmlentities($_POST['gia_sp']);?>">
+                    <span class="text-danger"><?= isset($err_giasp) ? $err_giasp : '' ?></span>
+                    <br>
                     <button type="submit">Add</button>
                 </form>
 

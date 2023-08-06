@@ -1,8 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
     <?php
 require_once 'global.php';
 require_once 'dao_pdo/bill_pdo.php';
@@ -49,76 +45,8 @@ require_once 'dao_pdo/bill_pdo.php';
     <section>
         <hr>
     </section>
-    <div class="container mx-auto">
-        <!-- <div class="  row">
-
-
-
-
-            <div class="dropdown col-xl-3 my-5 text-center">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                    < ?= $a['ma_hd'] ?>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item bg-info text-white font-weight-bold text-uppercase" href="#">
-                            Chi tiết hóa đơn:</a></li>
-                    <li><a class="dropdown-item" href="#"> Tổng tiền: <span class="text-danger">
-                                < ?= $a['tong_tien'] ?>
-                            </span></a></li>
-                    <li><a class="dropdown-item" href="#">Tổng số lượng: <span class="text-success">
-                                < ?= $a['tongsl'] ?>
-                            </span></a></li>
-                    <li><a class="dropdown-item" href="#">Họ tên:
-                            < ?= $a['hoten'] ?>
-                        </a></li>
-                    <li><a class="dropdown-item" href="#">Địa chỉ:
-                            < ?= $a['diachi'] ?>
-                        </a></li>
-                    <li><a class="dropdown-item" href="#">Số điện thoại:
-                            <  ?= $a['sdt'] ?>
-                        </a></li>
-                    <li><a class="dropdown-item" href="#">Phương thức thanh toán:
-                            < ?php $payment = [1, 2, 3];
-                            if ($a['payment'] == $payment[0]) {
-                                echo "Thanh toán khi nhận hàng!";
-                            } elseif ($a['payment'] == $payment[1]) {
-                                echo "Thanh toán qua tài khoản ngân hàng!";
-                            } elseif ($a['payment'] == $payment[2]) {
-                                echo "Thanh toán qua ví điện tử (MOMO, ZaloPay...)";
-                            }
-                            ?>
-                        </a></li>
-                    <li class="bg-warning"><a class="dropdown-item" href="#">Trạng thái:
-                            < ?php
-
-
-                            $ma_hd = $a['ma_hd'];
-                            $t = status_select1($ma_hd);
-                            if (isset($t['stt_id'])) {
-                                if ($t['stt_id'] == 1) {
-                                    echo "Đang xử lý - Đã nhận thông tin đơn hàng!";
-                                } elseif ($t['stt_id'] == 2) {
-                                    echo "Đang xử lý - Đang chuẩn bị hàng!";
-                                } elseif ($t['stt_id'] == 3) {
-                                    echo "Đang xử lý - Đã giao cho bên vận chuyển!";
-                                } elseif ($t['stt_id'] == 4) {
-                                    echo "Đã xử lý - Giao hàng thành công!";
-                                }
-                            } elseif (!isset($t['stt_id'])) {
-                                echo '<h6 class="text-white">Chưa xử lý: Chờ cập nhật trạng thái!</h6>';
-                            }
-
-                            ?>
-
-                        </a></li>
-                </ul>
-            </div>
-
-
-
-
-        </div>
-    </div>  -->
+    
+        
 
     <section class="shop-cart spad">
         <div class="container">
@@ -217,6 +145,14 @@ require_once 'dao_pdo/bill_pdo.php';
 
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn">
+                        <a href="index.php?act=home" class="btn btn-info bg-info text-white">Về trang chủ</a>
+                    </div>
+                </div>
+
             </div>
             
         </div>
