@@ -103,7 +103,7 @@ require_once 'dao_pdo/tag_pdo.php';
                                     </div>
                                 </li>
                                 <li>
-                                    <span>Color:</span>
+                                    <span>Available Color:</span>
                                     <div class="color__checkbox">
                                         <label for="<?= $b['tag_value']?>">
                                         <?= $b['tag_value']?>
@@ -112,7 +112,7 @@ require_once 'dao_pdo/tag_pdo.php';
                                     </div>
                                 </li>
                                 <li>
-                                    <span>Available size:</span>
+                                    <span>Available Size:</span>
                                     <div class="size__btn">
                                     <label for="<?= $b['tag_value']?>">
                                         <?= $d['tag_value']?>
