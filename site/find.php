@@ -7,7 +7,18 @@
 </head>
 
 <body>
-
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="index.php?act=home"><i class="fa fa-home"></i> Home</a>
+                        <span>Find: <?= $key ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="product spad">
         <div class="container">
 
@@ -49,17 +60,17 @@
                                     <input type="hidden" name="gia_sp" value="<?= $k['gia_sp'] ?>">
                                     <input type="hidden" name="img" value="<?= $k['img'] ?>">
 
-                                    
+
                                     <div class="product__price bg-black rounded-pill text-white ">
 
-                                                    <input type="submit" value="Add to cart" name="addtocart" class="">
-                                                    &emsp;&emsp;   |&emsp;&emsp; 
-                                                    <a class="text-decoration-none"
-                                                        href="index.php?act=spdetail&ma_sp=<?= $k['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>"> 
-                                                        Details
-                                                    </a>
+                                        <input type="submit" value="Add to cart" name="addtocart" class="">
+                                        &emsp;&emsp; |&emsp;&emsp;
+                                        <a class="text-decoration-none"
+                                            href="index.php?act=spdetail&ma_sp=<?= $k['ma_sp'] ?>&cate_id=<?= $t[0][0] ?>">
+                                            Details
+                                        </a>
 
-                                                </div>
+                                    </div>
 
                                 </div>
                             </form>
