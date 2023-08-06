@@ -121,7 +121,7 @@
                                         <td><img src="../../upload/<?= $d['img'] ?>" alt="" width="100px" height="100px">
                                         </td>
                                         <td>
-                                            <?= $d['gia_sp'] ?>
+                                            <?php echo number_format($d['gia_sp'],0,',') ?>
                                         </td>
                                         <td><a href="index.php?act=productedit&ma_sp=<?= $d['ma_sp'] ?>"
                                                 class="text-success">Update</a> / <a
