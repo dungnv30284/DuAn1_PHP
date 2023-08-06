@@ -53,9 +53,9 @@
                                 <div class="checkout__form__input">
                                     <p>First Name <span>*</span></p>
                                     <span class="text-danger">
-                                        <?= isset($err_sdt) ? $err_sdt : '' ?>
+                                        <?= isset($err_hoten) ? $err_hoten : '' ?>
                                     </span>
-                                    <input type="text" name="hoten">
+                                    <input type="text" name="hoten" value="<?= $hoten ?>">
                                 </div>
                             </div>
 
@@ -63,9 +63,9 @@
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
                                     <span class="text-danger">
-                                        <?= isset($err_sdt) ? $err_sdt : '' ?>
+                                        <?= isset($err_diachi) ? $err_diachi : '' ?>
                                     </span>
-                                    <input type="text" name="diachi">
+                                    <input type="text" name="diachi" value="<?= $diachi ?>">
                                 </div>
 
                             </div>
@@ -75,13 +75,15 @@
                                     <span class="text-danger">
                                         <?= isset($err_sdt) ? $err_sdt : '' ?>
                                     </span>
-                                    <input type="text" name="sdt">
+                                    <input type="text" name="sdt" value="<?= $sdt ?>">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="">
                                     <p>Payment <span>*</span></p>
-
+                                    <span class="text-danger">
+                                        <?= isset($err_payment) ? $err_payment : '' ?>
+                                    </span>
                                     <select name="payment" id="" class="w-full border border-gray-200 h-[50px]">
                                         <option value="0">Choose payment</option>
                                         <option value="1">Paying when receiving! (COD)</option>
@@ -89,9 +91,6 @@
                                         <option value="3">Paying through App(MOMO, ZaloPay...)!</option>
                                     </select>
                                 </div>
-                                <span class="text-danger">
-                                    <?= isset($err_sdt) ? $err_sdt : '' ?>
-                                </span>
                             </div>
 
                         </div>

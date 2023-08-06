@@ -9,15 +9,18 @@ function sp_selectone($ma_sp){
     $sql = "select * from sps where ma_sp = ?"; 
     return pdo_query_one($sql,$ma_sp);
 }
+
 function sp_insert($ten_sp,$img,$gia_sp){
     $sql = "insert into sps(ten_sp,img,gia_sp) values (?,?,?)";
     pdo_execute($sql,$ten_sp,$img,$gia_sp);
 }
 
+
 function sp_delete($ma_sp){
     $sql = "delete from sps where ma_sp = ?";
     pdo_execute($sql,$ma_sp);
 }
+
 function sp_empty(){
     $sql = "delete * from sps ";
     pdo_execute($sql);
@@ -27,6 +30,7 @@ function sp_update($ten_sp,$img,$gia_sp,$ma_sp){
     $sql = "update sps set ten_sp =?,img=?,gia_sp=? where ma_sp = ?";
     pdo_execute($sql,$ten_sp,$img,$gia_sp,$ma_sp);
 }
+
 
 function sp_by_gia($gia_sp){
     $sql = "select * from sps where gia_sp = ?"; 

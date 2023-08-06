@@ -166,7 +166,7 @@ if (isset($_GET['act'])) {
                     echo "
                         <script>
                         alert('Đặt mua thành công');
-                        window.location.href='http://localhost/duan1/index.php?act=bill';
+                        window.location.href='http://localhost/duan1_php/index.php?act=bill';
                         </script>
                         ";
                 }
