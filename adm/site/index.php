@@ -128,8 +128,15 @@ if (isset($_GET['act'])) {
                 if ($gia_sp == '') {
                     $err_giasp = "Bạn chưa nhập giá sản phẩm!";
                 }
-                if ($anh == '' || $anh > 4000) {
+                if ($anh == '' ) {
                     $err_anh = "Bạn chưa tải lên ảnh/File quá lớn";
+                }
+                else{
+                    $im = ['jpg','jpeg','png','gif'];
+                    $ext = pathinfo($anh, PATHINFO_EXTENSION);
+                    if(!in_array($ext,$im)){
+                        $err_anh = "File không phải hình ảnh";
+                    }
                 }
                 if (!$err_tensp && !$err_anh && !$err_giasp) {
                     sp_insert($ten_sp, $anh, $gia_sp);
@@ -172,12 +179,19 @@ if (isset($_GET['act'])) {
                     }
                 } else {
                     $anh = saveFile('img');
-
+                     
                     if ($ten_sp == '') {
                         $err_tensp = "Bạn chưa nhập tên sản phẩm!";
                     }
                     if ($anh == '') {
                         $err_anh = "Bạn chưa tải lên hình ảnh sản phẩm!";
+                    }
+                    else{
+                        $im = ['jpg','jpeg','png','gif'];
+                        $ext = pathinfo($anh, PATHINFO_EXTENSION);
+                        if(!in_array($ext,$im)){
+                            $err_anh = "File không phải hình ảnh";
+                        }
                     }
                     if ($gia_sp == '') {
                         $err_giasp = "Bạn chưa nhập giá sản phẩm!";
