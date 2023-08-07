@@ -193,7 +193,7 @@ if (isset($_GET['act'])) {
                     echo "
                         <script>
                         alert('Đặt mua thành công! Đang chuyển tới hóa đơn, vui lòng kiểm tra lại toàn bộ thông tin! Xin cảm ơn!');
-                        window.location.href='http://localhost/duan1/index.php?act=bill&ma_hd=$ma_hd';
+                        window.location.href='http://localhost/duan1_php/index.php?act=bill&ma_hd=$ma_hd';
                         </script>
                         ";
                 }
