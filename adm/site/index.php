@@ -205,7 +205,7 @@ if (isset($_GET['act'])) {
             sp_delete($ma_sp);
             echo "  <script>
             alert('Xóa thành công!');
-            window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlis';
+            window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
             </script>";
             $VIEW_NAME = 'sp/prodel.php';
             break;

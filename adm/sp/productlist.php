@@ -86,7 +86,7 @@
                                         </td>
                                         <td><a href="index.php?act=productedit&ma_sp=<?= $d['ma_sp'] ?>"
                                                 class="text-success">Update</a> / <a
-                                                href="index.php?prodel&ma_sp=<?= $d['ma_sp'] ?>"
+                                                href="index.php?act=prodel&ma_sp=<?= $d['ma_sp'] ?>"
                                                 onclick="return confirm('Bạn có muốn xóa không?')"
                                                 class="text-danger">Delete</a></td>
                                     </tr>
