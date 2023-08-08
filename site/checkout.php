@@ -83,18 +83,18 @@
                                     <p>Payment <span>*</span></p>
 
                                     <select name="payment" id="select" value="<?php if(isset($_POST['payment'])) echo htmlentities($_POST['payment']);?>" id="" class="w-full border border-gray-200 h-[50px]" onchange="paymentChange()">
-                                        <option value="">Choose payment</option>
+                                        <option value="0">Choose payment</option>
                                         <option value="1">Paying when receiving! (COD)</option>
                                         <option value="2">Paying through Bank's account!</option>
                                         <option value="3">Paying through App(MOMO, ZaloPay...)!</option>
                                     </select>
-                                </div>
+                                </div> 
                                 <span class="text-danger">
                                     <?= isset($err_payment) ? $err_payment : '' ?>
                                 </span>
                             </div>
                             <div class="col-lg-12 mt-2">
-                                <p id="show" class="text-info"> </p>
+                                <p id="show" class="text-info font-weight-bold "> </p>
                             </div>
 
                         </div>

@@ -178,7 +178,7 @@ if (isset($_GET['act'])) {
                 } elseif ($num != true) {
                     $err_sdt = "Sai định dạng số điện thoại";
                 }
-                if ($payment == 0) {
+                if ($payment == "0") {
                     $err_payment = "Bạn chưa chọn phương thức thanh toán";
                     //echo $err_payment;
                 }
