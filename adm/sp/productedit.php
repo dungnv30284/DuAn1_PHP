@@ -67,16 +67,16 @@
                     <input type="hidden" name="ma_sp" value="<?= $result['ma_sp'] ?>"> <br>
                     <label for="">New Product's Name</label> <br>
                     <input type="text" name="ten_sp" id="" value="<?= $result['ten_sp'] ?>"> 
-                    <?= isset($err_tensp) ? $err_tensp : '' ?>
+                    <span class="text-danger"><?= isset($err_tensp) ? $err_tensp : '' ?></span>
                     <br>
                     <label for="">New Image</label> <br>
                     <input type="hidden" name="img" id="" value="<?= $result['img'] ?>">
                     <input type="file" name="img" id=""> 
-                    <?= isset($err_anh) ? $err_anh : '' ?>
+                    <span class="text-danger"> <?= isset($err_anh) ? $err_anh : '' ?> </span>
                     <br>
                     <label for="">New Price</label> <br>
                     <input type="number" name="gia_sp" id="" value="<?= $result['gia_sp'] ?>"> 
-                    <?= isset($err_giasp) ? $err_giasp : '' ?>
+                    <span class="text-danger"> <?= isset($err_giasp) ? $err_giasp : '' ?> </span>
                     <br>
                     <button type="submit">Update</button>
                 </form>
