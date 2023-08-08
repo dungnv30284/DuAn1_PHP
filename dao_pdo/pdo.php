@@ -27,6 +27,7 @@ function pdo_execute($sql){
         unset($conn);
     }
 }
+
 function pdo_query($sql){
     $sql_args = array_slice(func_get_args(),1);
     try{
@@ -43,6 +44,7 @@ function pdo_query($sql){
         unset($conn);
     }
 }
+
 function pdo_query_one($sql){
     $sql_args = array_slice(func_get_args(),1);
     try{
@@ -59,5 +61,6 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+
 
 ?>
