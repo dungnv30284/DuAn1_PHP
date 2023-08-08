@@ -148,6 +148,9 @@
                         <a href="index.php?act=sp" class="btn btn-info bg-info text-white">Continue Buying</a>
                     </div>
                 </div>
+                <?php
+                        if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                            ?>
                 <div class="col-lg-4 ">
                     <div class="cart__total__procced">
                         <h6>Cart total</h6>
@@ -160,7 +163,11 @@
                         <a href="index.php?act=checkout" class="primary-btn">Checkout</a>
                     </div>
                 </div>
+                <?php } else{
+                ?>
 
+
+<?php }?>
             </div>
             <div class="row">
                 <div class="col-lg-6">

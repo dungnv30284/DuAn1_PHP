@@ -143,7 +143,7 @@ if (isset($_GET['act'])) {
             if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                 header('location: index.php?act=cart');
             } else {
-                header('location: index.php?act=home');
+                header('location: index.php?act=cart');
             }
             break;
         case 'spdetail':
