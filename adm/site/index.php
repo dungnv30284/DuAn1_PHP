@@ -267,11 +267,7 @@ if (isset($_GET['act'])) {
             $gia2 = 1000000;
             $j = count_masp($gia1, $gia2);
 
-            // echo $a[0][0].'<br>';
-            // echo $b[0][0].'<br>';
-            // echo $c[0][0].'<br>';
-            // echo $d[0][0].'<br>';
-            // echo $e[0][0].'<br>';
+          
             $VIEW_NAME = 'site/home.php';
             break;
         default:
