@@ -129,7 +129,7 @@ if (isset($_GET['act'])) {
                     $err_giasp = "Bạn chưa nhập giá sản phẩm!";
                 }
                 if ($anh == '') {
-                    $err_anh = "Bạn chưa tải lên ảnh/File quá lớn";
+                    $err_anh = "Bạn chưa tải lên ảnh";
                 } else {
                     $im = ['jpg', 'jpeg', 'png', 'gif'];
                     $ext = pathinfo($anh, PATHINFO_EXTENSION);

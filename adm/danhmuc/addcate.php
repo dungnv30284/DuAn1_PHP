@@ -65,14 +65,16 @@
                 <form action="index.php?act=addcate" method="post" enctype="multipart/form-data" class="checkout__form">
                     <div class="checkout__form__input">
                         <label for="">Categories's ID</label> <br>
+                        <span class="text-danger"> <?= isset($err_cate) ? $err_cate : '' ?></span>
                         <input type="text" name="cate_id">
-                       <span class="text-danger"> <?= isset($err_cate) ? $err_cate : '' ?></span>
+                      
                         <br>
                     </div>
                     <div class="checkout__form__input">
                     <label for="">Categories's Name</label> <br>
-                    <input type="text" name="cate_name" id=""> 
                     <span class="text-danger"> <?= isset($err_name) ? $err_name : '' ?> </span>
+                    <input type="text" name="cate_name" id=""> 
+                    
                     <br> <br>
                     </div>
 
