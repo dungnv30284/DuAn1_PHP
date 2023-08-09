@@ -5,7 +5,7 @@ require_once '../../dao_pdo/sp_pdo.php';
 require_once '../../dao_pdo/bill_pdo.php';
 require_once '../../dao_pdo/adm_pdo.php';
 require_once '../../dao_pdo/tag_pdo.php';
-
+$VIEW_NAME = 'site/home.php';
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'addcate':
@@ -128,13 +128,12 @@ if (isset($_GET['act'])) {
                 if ($gia_sp == '') {
                     $err_giasp = "Bạn chưa nhập giá sản phẩm!";
                 }
-                if ($anh == '' ) {
+                if ($anh == '') {
                     $err_anh = "Bạn chưa tải lên ảnh/File quá lớn";
-                }
-                else{
-                    $im = ['jpg','jpeg','png','gif'];
+                } else {
+                    $im = ['jpg', 'jpeg', 'png', 'gif'];
                     $ext = pathinfo($anh, PATHINFO_EXTENSION);
-                    if(!in_array($ext,$im)){
+                    if (!in_array($ext, $im)) {
                         $err_anh = "File không phải hình ảnh";
                     }
                 }
@@ -179,17 +178,16 @@ if (isset($_GET['act'])) {
                     }
                 } else {
                     $anh = saveFile('img');
-                     
+
                     if ($ten_sp == '') {
                         $err_tensp = "Bạn chưa nhập tên sản phẩm!";
                     }
                     if ($anh == '') {
                         $err_anh = "Bạn chưa tải lên hình ảnh sản phẩm!";
-                    }
-                    else{
-                        $im = ['jpg','jpeg','png','gif'];
+                    } else {
+                        $im = ['jpg', 'jpeg', 'png', 'gif'];
                         $ext = pathinfo($anh, PATHINFO_EXTENSION);
-                        if(!in_array($ext,$im)){
+                        if (!in_array($ext, $im)) {
                             $err_anh = "File không phải hình ảnh";
                         }
                     }
@@ -267,7 +265,7 @@ if (isset($_GET['act'])) {
             $gia2 = 1000000;
             $j = count_masp($gia1, $gia2);
 
-          
+
             $VIEW_NAME = 'site/home.php';
             break;
         default:
