@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="index.php?act=home"><i class="fa fa-home"></i> Home</a>
                         <span>Check out</span>
                     </div>
                 </div>
@@ -147,8 +147,24 @@
                     </div>
                 </div>
             </form>
+        
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn">
+                        <a href="index.php?act=home" class="btn btn-info bg-info text-white">Home</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn">
+                        <a href="index.php?act=cart" class="btn btn-info bg-warning text-white">Back to cart</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+        
     </section>
+    
     <script>
         function paymentChange(){
         var show =document.getElementById('show');
