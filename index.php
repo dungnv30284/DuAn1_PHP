@@ -35,7 +35,7 @@ if (isset($_GET['act'])) {
                 $ten_sp = $_POST['ten_sp'];
                 $err_sl = '';
                 if ($sl == '') {
-                    $err_sl = 'Hãy chọn số lượng';
+                    $err_sl = 'Select amount!';
                 } elseif ($sl != '') {
                     if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
                         $i = 0;
@@ -52,31 +52,7 @@ if (isset($_GET['act'])) {
             }
             $VIEW_NAME = 'site/cart.php';
             break;
-        // case 'updatecart':
-        //     if (isset($_POST['uptocart']) && $_POST['uptocart']) {
-        //         $sl = $_POST['sl'];
-        //         $ten_sp = $_POST['ten_sp'];
-        //         $err_sl = '';
-        //         if ($sl == '') {
-        //             $err_sl = 'Hãy chọn số lượng';
-        //             header('location: index.php?act=cart');
-        //         } elseif ($sl != '') {
-        //             if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
-        //                 $i = 0;
-        //                 foreach ($_SESSION['giohang'] as $item) {
-        //                     if ($item[0] == $ten_sp) {
-        //                         $_SESSION['giohang'][$i][3] = $sl;
-        //                         break;
-        //                     }
-        //                     $i++;
-        //                 }
-        //             }
-        //             header('location: index.php?act=cart');
-        //         }
-        //     }
-
-
-        //     break;
+       
         case 'home':
             $VIEW_NAME = 'site/home.php';
             break;
@@ -169,21 +145,21 @@ if (isset($_GET['act'])) {
                 $err_hoten = $err_diachi = $err_sdt = $err_payment = '';
                 $num = preg_match('/^[0-9]{10}+$/', $sdt);
                 if ($hoten == '') {
-                    $err_hoten = "Bạn chưa nhập họ tên";
+                    $err_hoten = "Blank name!";
                     // echo $err_hoten;
                 }
                 if ($sdt == '') {
-                    $err_sdt = "Bạn chưa nhập số điện thoại";
+                    $err_sdt = "Blank phone-number";
                     //echo $err_sdt;
                 } elseif ($num != true) {
-                    $err_sdt = "Sai định dạng số điện thoại";
+                    $err_sdt = "Invalid phone-number";
                 }
                 if ($payment == "0") {
-                    $err_payment = "Bạn chưa chọn phương thức thanh toán";
+                    $err_payment = "Blank payment";
                     //echo $err_payment;
                 }
                 if ($diachi == '') {
-                    $err_diachi = "Bạn chưa nhập địa chỉ";
+                    $err_diachi = "Blank address";
 
                 }
                 if (!$err_hoten && !$err_diachi && !$err_sdt && !$err_payment) {
@@ -192,7 +168,7 @@ if (isset($_GET['act'])) {
                         unset($_SESSION['giohang']);
                     echo "
                         <script>
-                        alert('Đặt mua thành công! Đang chuyển tới hóa đơn, vui lòng kiểm tra lại toàn bộ thông tin! Xin cảm ơn!');
+                        alert('Done! Direct to your bill, check it please!');
                         window.location.href='http://localhost/duan1_php/index.php?act=bill&ma_hd=$ma_hd';
                         </script>
                         ";
@@ -241,12 +217,7 @@ if (isset($_GET['act'])) {
 
                 $keyword = "%$key%";
                 $keylist = search($keyword);
-                // if($keyword = '___000'){
-                //     $keylist = searchgia($keyword);
-                // } else{
-                // 
-                // }
-
+              
             }
 
             $VIEW_NAME = 'site/find.php';

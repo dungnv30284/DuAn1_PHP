@@ -14,16 +14,16 @@ if (isset($_GET['act'])) {
                 $cate_name = $_POST['cate_name'];
                 $err_cate = $err_name = '';
                 if ($cate_id == '') {
-                    $err_cate = "Bạn chưa điền mã danh mục";
+                    $err_cate = "Blank Category's id";
                 }
                 if ($cate_name == '') {
-                    $err_name = "Bạn chưa điền tên danh mục";
+                    $err_name = "Blank category's name";
                 }
                 if (!$err_cate && !$err_name) {
                     cate_insert($cate_id, $cate_name);
                     echo "
                         <script>
-                        alert('Thêm thành công!');
+                        alert('Successly added!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
                         </script>
                         ";
@@ -38,14 +38,14 @@ if (isset($_GET['act'])) {
                 $err_name = '';
 
                 if ($cate_name == '') {
-                    $err_name = "Bạn chưa điền tên danh mục";
+                    $err_name = "Blank Category's id";
                 }
                 if (!$err_name) {
                     cate_update($cate_name, $cate_id);
 
                     echo "
                         <script>
-                        alert('Update thành công!');
+                        alert('Successly updated!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
                         </script>
                         ";
@@ -59,7 +59,7 @@ if (isset($_GET['act'])) {
             $cate_id = $_GET['cate_id'];
             cate_delete($cate_id);
             echo "  <script>
-            alert('Xóa thành công!');
+            alert('Deleted!');
             window.location.href='http://localhost/duan1_php/adm/site/index.php?act=catelist';
             </script>";
             $VIEW_NAME = 'danhmuc/delcate.php';
@@ -74,13 +74,13 @@ if (isset($_GET['act'])) {
                 $stt = $_POST['stt_id'];
                 $err_stt = '';
                 if ($stt == '') {
-                    $err_stt = 'Bạn chưa điền mã trạng thái';
+                    $err_stt = 'Blank status id';
                 }
                 if (!$err_stt) {
                     stt_insert($ma_hd, $stt);
                     echo "
                         <script>
-                        alert('Thêm trạng thái thành công!');
+                        alert('Success added status!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=billlist';
                         </script>
                         ";
@@ -94,13 +94,13 @@ if (isset($_GET['act'])) {
                 $stt_id = $_POST['stt_id'];
                 $err_stt = '';
                 if ($stt_id == '' || $stt_id > 4) {
-                    $err_stt = 'Bạn chưa điền mã trạng thái/Mã không hợp lệ';
+                    $err_stt = 'Blank status id/Invalid id';
                 }
                 if (!$err_stt) {
                     stt_update($stt_id, $ma_hd);
                     echo "
                         <script>
-                        alert('Update trạng thái thành công!');
+                        alert('Successly status updated!!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=billlist';
                         </script>
                         ";
@@ -123,25 +123,25 @@ if (isset($_GET['act'])) {
                 $gia_sp = $_POST['gia_sp'];
                 $err_tensp = $err_anh = $err_giasp = '';
                 if ($ten_sp == '') {
-                    $err_tensp = "Bạn chưa nhập tên sản phẩm!";
+                    $err_tensp = "Blank product's name!";
                 }
                 if ($gia_sp == '') {
-                    $err_giasp = "Bạn chưa nhập giá sản phẩm!";
+                    $err_giasp = "Blank product's price!";
                 }
                 if ($anh == '') {
-                    $err_anh = "Bạn chưa tải lên ảnh";
+                    $err_anh = "Empty image file";
                 } else {
                     $im = ['jpg', 'jpeg', 'png', 'gif'];
                     $ext = pathinfo($anh, PATHINFO_EXTENSION);
                     if (!in_array($ext, $im)) {
-                        $err_anh = "File không phải hình ảnh";
+                        $err_anh = "File isn't image";
                     }
                 }
                 if (!$err_tensp && !$err_anh && !$err_giasp) {
                     sp_insert($ten_sp, $anh, $gia_sp);
                     echo "
                         <script>
-                        alert('Thêm thành công!');
+                        alert('Success added!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
                         </script>
                         ";
@@ -159,19 +159,19 @@ if (isset($_GET['act'])) {
                 if ($img['size'] == 0) {
                     $hinh = $_POST['img'];
                     if ($ten_sp == '') {
-                        $err_tensp = "Bạn chưa nhập tên sản phẩm!";
+                        $err_tensp = "Blank product's name!";
                     }
                     if ($hinh == '') {
-                        $err_anh = "Bạn chưa tải lên hình ảnh sản phẩm!";
+                        $err_anh = "Blank image's file!";
                     }
                     if ($gia_sp == '') {
-                        $err_giasp = "Bạn chưa nhập giá sản phẩm!";
+                        $err_giasp = "Blank product's price!";
                     }
                     if (!$err_tensp && !$err_anh && !$err_giasp) {
                         sp_update($ten_sp, $hinh, $gia_sp, $ma_sp);
                         echo "
                         <script>
-                        alert('Update thành công!');
+                        alert('Success updated!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
                         </script>
                         ";
@@ -180,25 +180,25 @@ if (isset($_GET['act'])) {
                     $anh = saveFile('img');
 
                     if ($ten_sp == '') {
-                        $err_tensp = "Bạn chưa nhập tên sản phẩm!";
+                        $err_tensp = "Blank product's name!";
                     }
                     if ($anh == '') {
-                        $err_anh = "Bạn chưa tải lên hình ảnh sản phẩm!";
+                        $err_anh = "Blank image's file!";
                     } else {
                         $im = ['jpg', 'jpeg', 'png', 'gif'];
                         $ext = pathinfo($anh, PATHINFO_EXTENSION);
                         if (!in_array($ext, $im)) {
-                            $err_anh = "File không phải hình ảnh";
+                            $err_anh = "File isn't image";
                         }
                     }
                     if ($gia_sp == '') {
-                        $err_giasp = "Bạn chưa nhập giá sản phẩm!";
+                        $err_giasp = "Blank product's price!";
                     }
                     if (!$err_tensp && !$err_anh && !$err_giasp) {
                         sp_update($ten_sp, $anh, $gia_sp, $ma_sp);
                         echo "
                         <script>
-                        alert('Update thành công!');
+                        alert('Update done!');
                         window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
                         </script>
                         ";
@@ -216,7 +216,7 @@ if (isset($_GET['act'])) {
             $ma_sp = $_GET['ma_sp'];
             sp_delete($ma_sp);
             echo "  <script>
-            alert('Xóa thành công!');
+            alert('Deleted!');
             window.location.href='http://localhost/duan1_php/adm/site/index.php?act=productlist';
             </script>";
             $VIEW_NAME = 'sp/prodel.php';
