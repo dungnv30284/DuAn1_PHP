@@ -21,7 +21,7 @@ if(exist_param('btn_login')){
             }
             echo "
             <script>
-            alert('Success logged in! Direct to management's home!');
+            alert('Success logged in! Direct to management page!');
             window.location.href='http://localhost/duan1_php/adm/site/index.php?act=home';
             </script>
             ";
