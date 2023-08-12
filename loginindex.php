@@ -21,7 +21,7 @@ if(exist_param('btn_login')){
             }
             echo "
             <script>
-            alert('Đăng nhập thành công! Chuyển đến trang quản trị!');
+            alert('Success logged in! Direct to management's home!');
             window.location.href='http://localhost/duan1_php/adm/site/index.php?act=home';
             </script>
             ";
@@ -30,7 +30,7 @@ if(exist_param('btn_login')){
             $mess = "Wrong password";
             echo "
             <script>
-            alert(' Mật khẩu không đúng vui  bạn đăng nhập lại ');
+            alert('False password, retry it please!');
             window.location.href='http://localhost/duan1_php/index.php?act=home';
             </script>
             ";
@@ -40,7 +40,7 @@ if(exist_param('btn_login')){
         $mess = "Wrong Login pass";
         echo "
             <script>
-            alert('Tài khoản hoặc mật khẩu không đúng vui  bạn đăng nhập lại ');
+            alert('False password or username, retry it please!');
             window.location.href='http://localhost/duan1_php/index.php?act=home';
             </script>
             ";
@@ -52,7 +52,7 @@ else{
     $pass = get_cookie('pass');
     echo "
         <script>
-        alert('Đăng xuất thành công!');
+        alert('Logged out!');
         window.location.href='http://localhost/duan1_php/index.php';
         </script>
         ";
