@@ -53,7 +53,7 @@
             <form action="loginindex.php" method="post" class="">
 
                 <input class="w-full  border-bottom border-info" type="text" name="adm_id" id=""
-                    placeholder=" Admin's ID">
+                    placeholder=" Admin's ID(Admin only)">
 
                 <input class="w-full   border-bottom border-info" type="text" name="pass" id="" placeholder=" Password">
                 <input type="submit" name="btn_login" class="bg-info mt-2 text-white w-full" value="Login">

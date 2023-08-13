@@ -155,7 +155,9 @@
                             <?php }?>
                        
                     </div>
-                
+                    <a href="index.php?act=billdetail&ma_hd=<?=$d['ma_hd']?>" class="btn btn-info" >See details</a>         
+                                    </td>
+                 
                                         
                                     </td>
                                        

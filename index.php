@@ -87,6 +87,7 @@ if (isset($_GET['act'])) {
                 } else {
                     $sl = 1;
                 }
+                // khai báo biến fo để kiểm tra
                 $fo = 0;
                 //Check sp da ton tai hay chưa, //nếu có thì cập nhật số lượng,
                 $i = 0;

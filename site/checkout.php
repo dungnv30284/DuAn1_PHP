@@ -142,7 +142,7 @@
                             </div>
 
 
-                            <input type="submit" class="site-btn" name="buy" value="Đặt mua">
+                            <input type="submit" class="site-btn" name="buy" value="Buy">
                         </div>
                     </div>
                 </div>
