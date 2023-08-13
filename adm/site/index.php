@@ -116,6 +116,12 @@ if (isset($_GET['act'])) {
 
             $VIEW_NAME = 'donhang/billlist.php';
             break;
+        case 'billdetail':
+            $ma_hd = $_GET['ma_hd'];
+            $a = bills_selectone($ma_hd);
+
+            $VIEW_NAME = 'donhang/billdetail.php';
+            break;
         case 'productadd':
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $ten_sp = $_POST['ten_sp'];
