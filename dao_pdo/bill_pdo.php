@@ -4,6 +4,10 @@ function bills_selectAll(){
     $sql = "select * from bills";
     return pdo_query($sql);
 }
+function bills_selecttheoten($hoten){
+    $sql = "select * from bills where hoten = ?"; 
+    return pdo_query($sql,$hoten);
+}
 function bills_selectone($ma_hd){
     $sql = "select * from bills where ma_hd = ?"; 
     return pdo_query_one($sql,$ma_hd);

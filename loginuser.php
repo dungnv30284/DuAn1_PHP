@@ -1,29 +1,32 @@
 <?php
 require_once ('global.php');
-require_once('dao_pdo/adm_pdo.php');
+require_once('dao_pdo/user_pdo.php');
 
 extract($_REQUEST);
-if(exist_param('adm_login')){
-    $adm = adm_select_one($adm_id);
-    if($adm){
-        if($adm['pass']==$pass){
+if(exist_param('user_login')){
+    if(isset($_SESSION['giohang'])){
+        unset($_SESSION['giohang']);
+    }
+    $user = user_select_one($username);
+    if($user){
+        if($user['user_password']==$user_password){
             $mess = "Login Success!";
             if(exist_param('ghi_nho')){
-                add_cookie('adm_id',$adm_id,1);
-                add_cookie('pass',$pass,1);
+                add_cookie('username',$username,1);
+                add_cookie('user_password',$user_password,1);
             }
             else{
-                delete_cookie('adm_id');
-                delete_cookie('pass');
+                delete_cookie('username');
+                delete_cookie('user_password');
             }
-            $_SESSION['adm']=$adm;
+            $_SESSION['user']=$user;
             if(isset($_SESSION['request_url'])){
                 header('location: '.$_SESSION['request_url']);
             }
             echo "
             <script>
-            alert('Success logged in! Direct to management page!');
-            window.location.href='http://localhost/duan1_php/adm/site/index.php?act=home';
+            alert('Success logged in! ');
+            window.location.href='http://localhost/duan1_php/user/index.php?act=home';
             </script>
             ";
         }
@@ -49,12 +52,13 @@ if(exist_param('adm_login')){
 }
 else{
     session_unset();
-    $adm_id = get_cookie('adm_id');
-    $pass = get_cookie('pass');
+    $username = get_cookie('username');
+    $user_password = get_cookie('user_password');
     echo "
         <script>
         alert('Logged out!');
         window.location.href='http://localhost/duan1_php/index.php';
         </script>
         ";
+
 }
