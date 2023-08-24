@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item  my-4">
-                    <?php require '../../login.php' ?>
+                    <?php require '../../loginadm.php' ?>
                 </li>
             </ul>
      

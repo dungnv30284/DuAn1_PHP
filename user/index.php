@@ -1,17 +1,17 @@
 <?php
-require_once 'global.php';
-require_once 'dao_pdo/sp_pdo.php';
-require_once 'dao_pdo/bill_pdo.php';
-require_once 'dao_pdo/cate_pdo.php';
-require_once 'dao_pdo/adm_pdo.php';
-require_once 'dao_pdo/tag_pdo.php';
-require_once 'dao_pdo/user_pdo.php';
-if (!isset($_SESSION['giohang']))
-    $_SESSION['giohang'] = [];
+require_once '../global.php';
+require_once '../dao_pdo/sp_pdo.php';
+require_once '../dao_pdo/bill_pdo.php';
+require_once '../dao_pdo/cate_pdo.php';
+require_once '../dao_pdo/adm_pdo.php';
+require_once '../dao_pdo/tag_pdo.php';
+require_once '../dao_pdo/user_pdo.php';
+if (!isset($_SESSION['giohanguser']))
+    $_SESSION['giohanguser'] = [];
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'about':
-            $VIEW_NAME = 'site/about.php';
+            $VIEW_NAME = 'about.php';
             break;
         case 'sp':
             if (isset($page)) {
@@ -20,15 +20,15 @@ if (isset($_GET['act'])) {
                 $offset = 0;
             }
             $a = sp_offset($offset);
-            //$a = sp_selectAll_limit();
+           
             $cate = cate_selectAll();
-            $VIEW_NAME = 'site/sp.php';
+            $VIEW_NAME = 'sp.php';
             break;
         case '':
-            $VIEW_NAME = 'site/sp.php';
+            $VIEW_NAME = 'sp.php';
             break;
         case 'blog':
-            $VIEW_NAME = 'site/blog.php';
+            $VIEW_NAME = 'blog.php';
             break;
         case 'cart':
             if (isset($_POST['uptocart']) && $_POST['uptocart']) {
@@ -38,11 +38,11 @@ if (isset($_GET['act'])) {
                 if ($sl == '') {
                     $err_sl = 'Select amount!';
                 } elseif ($sl != '') {
-                    if (isset($_SESSION['giohang']) & count($_SESSION['giohang']) > 0) {
+                    if (isset($_SESSION['giohanguser']) & count($_SESSION['giohanguser']) > 0) {
                         $i = 0;
-                        foreach ($_SESSION['giohang'] as $item) {
-                            if ($item[0] == $ten_sp) {
-                                $_SESSION['giohang'][$i][3] = $sl;
+                        foreach ($_SESSION['giohanguser'] as $itemuser) {
+                            if ($itemuser[0] == $ten_sp) {
+                                $_SESSION['giohanguser'][$i][3] = $sl;
                                 break;
                             }
                             $i++;
@@ -51,11 +51,11 @@ if (isset($_GET['act'])) {
                     header('location: index.php?act=cart');
                 }
             }
-            $VIEW_NAME = 'site/cart.php';
+            $VIEW_NAME = 'cart.php';
             break;
 
         case 'home':
-            $VIEW_NAME = 'site/home.php';
+            $VIEW_NAME = 'home.php';
             break;
         case 'spothers':
             $cate_id = $_GET['cate_id'];
@@ -76,7 +76,7 @@ if (isset($_GET['act'])) {
             $offset = ($page - 1) * $target_per_page;
             $d = sp_by_cate_offset($cate_id, $offset);
             $cate = cate_selectAll();
-            $VIEW_NAME = 'site/spothers.php';
+            $VIEW_NAME = 'spothers.php';
             break;
         case 'addcart':
             if (isset($_POST['addtocart']) && $_POST['addtocart']) {
@@ -92,10 +92,10 @@ if (isset($_GET['act'])) {
                 $fo = 0;
                 //Check sp da ton tai hay chưa, //nếu có thì cập nhật số lượng,
                 $i = 0;
-                foreach ($_SESSION['giohang'] as $item) {
-                    if ($item[0] === $ten_sp) {
-                        $slm = $sl + $item[3];
-                        $_SESSION['giohang'][$i][3] = $slm;
+                foreach ($_SESSION['giohanguser'] as $itemuser) {
+                    if ($itemuser[0] === $ten_sp) {
+                        $slm = $sl + $itemuser[3];
+                        $_SESSION['giohanguser'][$i][3] = $slm;
                         $fo = 1;
                         break;
                     }
@@ -104,21 +104,21 @@ if (isset($_GET['act'])) {
                 // k thì thêm mới
                 //Khơie tạo mảng
                 if ($fo == 0) {
-                    $item = array($ten_sp, $img, $gia_sp, $sl);
-                    $_SESSION['giohang'][] = $item;
+                    $itemuser = array($ten_sp, $img, $gia_sp, $sl);
+                    $_SESSION['giohanguser'][] = $itemuser;
                 }
                 header('location: index.php?act=cart');
             }
             break;
         case 'delcart':
             if (isset($_GET['i']) && $_GET['i'] >= 0) {
-                if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0)
-                    array_splice($_SESSION['giohang'], $_GET['i'], 1);
+                if (isset($_SESSION['giohanguser']) && count($_SESSION['giohanguser']) > 0)
+                    array_splice($_SESSION['giohanguser'], $_GET['i'], 1);
             } else {
-                if (isset($_SESSION['giohang']))
-                    unset($_SESSION['giohang']);
+                if (isset($_SESSION['giohanguser']))
+                    unset($_SESSION['giohanguser']);
             }
-            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+            if (isset($_SESSION['giohanguser']) && count($_SESSION['giohanguser']) > 0) {
                 header('location: index.php?act=cart');
             } else {
                 header('location: index.php?act=cart');
@@ -131,9 +131,12 @@ if (isset($_GET['act'])) {
             $a = sp_selectone($ma_sp);
             $b = tag_select($ma_sp, $tag_id);
             $d = tag_select($ma_sp, $tag_id2);
-            $VIEW_NAME = 'site/spdetail.php';
+            $VIEW_NAME = 'spdetail.php';
             break;
         case 'checkout':
+            $user = $_SESSION['user']['username'];
+            $us = user_select_one($user);
+         
             if (isset($_POST['buy']) && $_POST['buy']) {
                 $ma_hd = "HD" . rand(0, 10000);
                 $tong_tien = $_POST['tong_tien'];
@@ -166,18 +169,18 @@ if (isset($_GET['act'])) {
                 }
                 if (!$err_hoten && !$err_diachi && !$err_sdt && !$err_payment) {
                     bills_insert($ma_hd, $tong_tien, $tongsl, $hoten, $diachi, $sdt, $payment, $tensp, $hasp);
-                    if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0)
-                        unset($_SESSION['giohang']);
+                    if (isset($_SESSION['giohanguser']) && count($_SESSION['giohanguser']) > 0)
+                        unset($_SESSION['giohanguser']);
                     echo "
                         <script>
                         alert('Done! Direct to your bill, check it please!');
-                        window.location.href='http://localhost/duan1_php/index.php?act=bill&ma_hd=$ma_hd';
+                        window.location.href='http://localhost/duan1_php/user/index.php?act=bill&ma_hd=$ma_hd';
                         </script>
                         ";
                 }
 
             }
-            $VIEW_NAME = 'site/checkout.php';
+            $VIEW_NAME = 'checkout.php';
             break;
         case 'adm_login':
             $VIEW_NAME = 'adm_login.php';
@@ -186,20 +189,6 @@ if (isset($_GET['act'])) {
             $VIEW_NAME = 'user_login.php';
             break;
         case 'user_register':
-            if(isset($_POST['register']) && $_POST['register']){
-                $username = $_POST['username'];
-                $user_mail = $_POST['user_mail'];
-                $user_phone = $_POST['user_phone'];
-                $user_address = $_POST['user_address'];
-                $user_password = $_POST['user_password'];
-                user_register($username,$user_mail, $user_phone, $user_address, $user_password);
-                echo "
-                <script>
-                alert('Register success! Direct to your login!');
-                window.location.href='http://localhost/duan1_php/index.php?act=user_login';
-                </script>
-                ";
-            }
             $VIEW_NAME = 'user_register.php';
             break;
         case 'product':
@@ -208,7 +197,7 @@ if (isset($_GET['act'])) {
             $a = sp_offset($offset);
             //$a = sp_selectAll_limit();
             $cate = cate_selectAll();
-            $VIEW_NAME = 'site/product.php';
+            $VIEW_NAME = 'product.php';
             break;
         case 'productother':
             $cate_id = $_GET['cate_id'];
@@ -229,12 +218,12 @@ if (isset($_GET['act'])) {
             $offset = ($page - 1) * $target_per_page;
             $d = sp_by_cate_offset($cate_id, $offset);
             $cate = cate_selectAll();
-            $VIEW_NAME = 'site/productother.php';
+            $VIEW_NAME = 'productother.php';
             break;
         case 'bill':
-            $ma_hd = $_GET['ma_hd'];
-            $a = bills_selectone($ma_hd);
-            $VIEW_NAME = 'site/bill.php';
+            $user = $_SESSION['user']['username'];
+            $a = bills_selecttheoten($user);
+            $VIEW_NAME = 'bill.php';
             break;
         case 'find':
             if (isset($_POST['finding']) && $_POST['finding']) {
@@ -245,16 +234,16 @@ if (isset($_GET['act'])) {
 
             }
 
-            $VIEW_NAME = 'site/find.php';
+            $VIEW_NAME = 'find.php';
             break;
 
         case 'billdetail':
             $ma_hd = $_GET['ma_hd'];
-            $a = bills_selectone($ma_hd);
-            $VIEW_NAME = 'site/billdetail.php';
+            $b = bills_selectone($ma_hd);
+            $VIEW_NAME = 'billdetail.php';
             break;
         default:
-            $VIEW_NAME = 'site/home.php';
+            $VIEW_NAME = 'home.php';
             break;
     }
 

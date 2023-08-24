@@ -17,7 +17,7 @@ function cate_delete($cate_id){
     $sql = "delete from categories where cate_id = ?";
     pdo_execute($sql,$cate_id);
 }
-function cate_empty(){
+function cate_empty(){  
     $sql = "delete * from categories";
     pdo_execute($sql);
 }

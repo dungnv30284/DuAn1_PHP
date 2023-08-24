@@ -50,14 +50,8 @@
             <i class="fa fa-user"></i>
         </a>
         <ul class="dropdown-menu">
-            <form action="loginindex.php" method="post" class="">
-
-                <input class="w-full  border-bottom border-info" type="text" name="adm_id" id=""
-                    placeholder=" Admin's ID(Admin only)">
-
-                <input class="w-full   border-bottom border-info" type="text" name="pass" id="" placeholder=" Password">
-                <input type="submit" name="btn_login" class="bg-info mt-2 text-white w-full" value="Login">
-            </form>
+        <li><a href="index.php?act=adm_login" class="text-white btn btn-success">Adm Login</a></li> <br>
+            <li><a href="index.php?act=user_login" class="text-white btn btn-success mt-2">User Login</a></li>
         </ul>
     </div>
    
