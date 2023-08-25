@@ -6,6 +6,7 @@ require_once '../dao_pdo/cate_pdo.php';
 require_once '../dao_pdo/adm_pdo.php';
 require_once '../dao_pdo/tag_pdo.php';
 require_once '../dao_pdo/user_pdo.php';
+require_once '../dao_pdo/cmt_pdo.php';
 if (!isset($_SESSION['giohanguser']))
     $_SESSION['giohanguser'] = [];
 if (isset($_GET['act'])) {
@@ -126,11 +127,21 @@ if (isset($_GET['act'])) {
             break;
         case 'spdetail':
             $ma_sp = $_GET['ma_sp'];
+            $cate_id = $_GET['cate_id'];
             $tag_id = 'CL';
             $tag_id2 = 'SZ';
+            $cmt = cmt_select($ma_sp);
             $a = sp_selectone($ma_sp);
             $b = tag_select($ma_sp, $tag_id);
             $d = tag_select($ma_sp, $tag_id2);
+            if(isset($_POST['comment']) && $_POST['comment']){
+                $cmt_masp = $_POST['cmt_masp'];
+                $cmt_date = $_POST['cmt_date'];
+                $cmter = $_POST['cmter'];
+                $cmt_content = $_POST['cmt_content'];
+                cmt_insert($cmt_masp,$cmt_date,$cmter,$cmt_content);
+            
+            }
             $VIEW_NAME = 'spdetail.php';
             break;
         case 'checkout':
