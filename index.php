@@ -6,6 +6,7 @@ require_once 'dao_pdo/cate_pdo.php';
 require_once 'dao_pdo/adm_pdo.php';
 require_once 'dao_pdo/tag_pdo.php';
 require_once 'dao_pdo/user_pdo.php';
+require_once 'dao_pdo/cmt_pdo.php';
 if (!isset($_SESSION['giohang']))
     $_SESSION['giohang'] = [];
 if (isset($_GET['act'])) {
@@ -128,6 +129,7 @@ if (isset($_GET['act'])) {
             $ma_sp = $_GET['ma_sp'];
             $tag_id = 'CL';
             $tag_id2 = 'SZ';
+            $cmt = cmt_select($ma_sp);
             $a = sp_selectone($ma_sp);
             $b = tag_select($ma_sp, $tag_id);
             $d = tag_select($ma_sp, $tag_id2);
