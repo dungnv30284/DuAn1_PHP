@@ -5,6 +5,8 @@ require_once '../../dao_pdo/sp_pdo.php';
 require_once '../../dao_pdo/bill_pdo.php';
 require_once '../../dao_pdo/adm_pdo.php';
 require_once '../../dao_pdo/tag_pdo.php';
+require_once '../../dao_pdo/user_pdo.php';
+require_once '../../dao_pdo/cmt_pdo.php';
 $VIEW_NAME = 'site/home.php';
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -247,7 +249,27 @@ if (isset($_GET['act'])) {
             // $s = sp_selectAll();
             $VIEW_NAME = 'sp/productlist.php';
             break;
+        case 'userlist';
+            $ul = user_select_all();
+            $VIEW_NAME = 'user/userlist.php';
+            break;
+        case 'user_update';
+            $username = $_GET['username'];
+            $u1 = user_select_one($username);
+            if (isset($_POST['userupdate']) && $_POST['userupdate']) {
+                $user_mail = $_POST['user_mail'];
+                $user_phone = $_POST['user_phone'];
+                $user_address = $_POST['user_address'];
+                $username = $_POST['username'];
+                user_update($user_mail, $user_phone, $user_address, $username);
+                echo "  <script>
+                alert('Success!');
+                window.location.href='http://localhost/duan1_php/adm/site/index.php?act=userlist';
+                </script>";
+            }
 
+            $VIEW_NAME = 'user/user_update.php';
+            break;
         case 'home':
             $cate_id = "AO";
             $a = count_cate($cate_id);

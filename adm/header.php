@@ -39,6 +39,12 @@
                 <li class="nav-item  my-4">
                     <a class="nav-link " href="index.php?act=billlist">Bills</a>
                 </li>
+                <li class="nav-item  my-4">
+                    <a class="nav-link " href="index.php?act=userlist">Users</a>
+                </li>
+                <li class="nav-item  my-4">
+                    <a class="nav-link " href="index.php?act=commentlist">Comments</a>
+                </li>
 
                 <li class="nav-item  my-4">
                     <?php require '../../loginadm.php' ?>
