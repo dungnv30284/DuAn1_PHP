@@ -9,19 +9,19 @@ $a = sp_offset($offset);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Cookie&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet"> -->
+        rel="stylesheet">
 
     <!-- Css Styles -->
-    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+   <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href=".../css/style.css" type="text/css"> -->
+    <link rel="stylesheet" href=".../css/style.css" type="text/css">
 </head>
 
 <body>
@@ -69,7 +69,7 @@ $a = sp_offset($offset);
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg" data-setbg="img/categories/category-5.jpg">
+                            <div class="categories__item set-bg" data-setbg="../../img/categories/category-5.jpg">
                                 <div class="categories__text">
                                     <h4>Accessories</h4>
                                     <p>Be yours </p>
@@ -111,9 +111,9 @@ $a = sp_offset($offset);
                     <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                         <div class="product__item">
                             <form action="index.php?act=addcart" method="post">
-                                <div class="product__item__pic set-bg rounded-pill" data-setbg="upload/<?= $d['img'] ?>">
+                                <div class="product__item__pic set-bg rounded-pill" data-setbg="../upload/<?= $d['img'] ?>">
                                     <ul class="product__hover">
-                                        <li><a href="../upload/<?= $d['img'] ?>.'" class="image-popup"><span
+                                        <li><a href="../upload/<?= $d['img'] ?>" class="image-popup"><span
                                                     class="arrow_expand"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                        
