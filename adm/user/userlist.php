@@ -57,14 +57,23 @@
                                         <td>
                                         <?= $l['user_address'] ?>
                                         </td>
-                                        <td>
+                                        <td class="block">
                                         <?php 
                                          $username = $l['username'];
                                          $uc = user_bill($username);
                                          foreach ($uc as $c){
-                                         echo $c;
+                                         echo $c.'<br>';
                                          }
-                                        ?>
+                                         if($c > 0){
+                                           ?>
+                                         <a href="index.php?act=userbillist&username=<?= $l['username']?>">See All</a>
+                                           <?php
+                                         }
+                                         else{
+                                            echo '';
+                                         }
+                                        ?> 
+                                        
                                         </td>
                                         <td><a href="index.php?act=user_update&username=<?= $l['username'] ?>"
                                                 class="text-success">Update</a> / <a
