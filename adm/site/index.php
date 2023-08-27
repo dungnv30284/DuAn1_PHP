@@ -118,6 +118,20 @@ if (isset($_GET['act'])) {
 
             $VIEW_NAME = 'donhang/billlist.php';
             break;
+        case 'commentlist':
+            $cmt = cmt_selectall();
+            $VIEW_NAME = 'comment/commentlist.php';
+            break;
+        case 'commentdel':
+            $cmt_id = $_GET['cmt_id'];
+            cmt_delete($cmt_id);
+            echo "
+                        <script>
+                        alert('Successly');
+                        window.location.href='http://localhost/duan1_php/adm/site/index.php?act=commentlist';
+                        </script>
+                        ";
+            break;
         case 'billdetail':
             $ma_hd = $_GET['ma_hd'];
             $a = bills_selectone($ma_hd);
