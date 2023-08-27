@@ -253,6 +253,12 @@ if (isset($_GET['act'])) {
             $ul = user_select_all();
             $VIEW_NAME = 'user/userlist.php';
             break;
+        case 'userbillist':
+            $username = $_GET['username'];
+            $a = bills_selecttheoten($username);
+            $VIEW_NAME = 'donhang/userbillist.php';
+            break;
+
         case 'user_update';
             $username = $_GET['username'];
             $u1 = user_select_one($username);
